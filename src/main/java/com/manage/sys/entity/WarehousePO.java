@@ -1,5 +1,8 @@
 package com.manage.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("warehouse")
 public class WarehousePO {
     private Long warehouseId;
     private String warehouseName;

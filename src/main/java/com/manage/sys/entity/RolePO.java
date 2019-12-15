@@ -1,11 +1,21 @@
 package com.manage.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+@TableName("role")
 public class RolePO {
+
     private Integer roleId;
+
+    @NotBlank(message="role_name can not be null")
     private String roleName;
     private String description;
+
+    @NotBlank(message = "status can't be null")
     private int status;
-    private Long updater;
     private java.sql.Timestamp updateTime;
 
     public Integer getRoleId() {
@@ -40,13 +50,7 @@ public class RolePO {
         this.status = status;
     }
 
-    public Long getUpdater() {
-        return this.updater;
-    }
 
-    public void setUpdater(Long updater) {
-        this.updater = updater;
-    }
 
     public java.sql.Timestamp getUpdateTime() {
         return this.updateTime;
@@ -63,7 +67,6 @@ public class RolePO {
                 ", roleName='" + roleName + '\'' +
                 ", description='" + description + '\'' +
                 ", status=" + status +
-                ", updater=" + updater +
                 ", updateTime=" + updateTime +
                 '}';
     }

@@ -1,5 +1,8 @@
 package com.manage.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("product")
 public class ProductPO {
     private Long productId;
     private String specifications;

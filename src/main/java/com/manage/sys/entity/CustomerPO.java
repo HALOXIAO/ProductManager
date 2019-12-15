@@ -1,6 +1,9 @@
 package com.manage.sys.entity;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("customer")
 public class CustomerPO {
     private Long customerId;
 

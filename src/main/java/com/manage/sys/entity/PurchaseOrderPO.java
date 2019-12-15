@@ -1,6 +1,9 @@
 package com.manage.sys.entity;
 
-public class PurchaseorderPO {
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("purchaseorder")
+public class PurchaseOrderPO {
     private Long purchaseId;
     private String purchaseOrder;
     private Long productId;

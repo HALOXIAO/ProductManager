@@ -1,5 +1,8 @@
 package com.manage.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("supplier")
 public class SupplierPO {
     private Long supplierId;
     private String supplierName;
