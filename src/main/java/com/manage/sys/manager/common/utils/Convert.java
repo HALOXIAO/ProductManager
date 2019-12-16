@@ -1,4 +1,4 @@
-package com.manage.sys.Manager.Utils;
+package com.manage.sys.manager.common.utils;
 
 import java.sql.Date;
 

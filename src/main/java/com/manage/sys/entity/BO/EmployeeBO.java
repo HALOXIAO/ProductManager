@@ -1,8 +1,7 @@
 package com.manage.sys.entity.BO;
 
-import com.manage.sys.Manager.Utils.Convert;
-import com.manage.sys.Service.Generator.EmployeeInformationGenerator;
-
+import com.manage.sys.service.generator.EmployeeInformationGenerator;
+import com.manage.sys.manager.common.utils.Convert;
 import java.sql.Date;
 
 public class EmployeeBO {
@@ -34,9 +33,9 @@ public class EmployeeBO {
         this.nationality = builder.nationality;
         this.identityCard = builder.identityCard;
         this.employeeTypeName = builder.employeeTypeName;
-        this.employeeAddress=builder.employeeAddress;
-        this.eMail=builder.eMail;
-        this.status=builder.status;
+        this.employeeAddress = builder.employeeAddress;
+        this.eMail = builder.eMail;
+        this.status = builder.status;
     }
 
 
@@ -63,7 +62,7 @@ public class EmployeeBO {
         private String eMail;
         private java.sql.Date birthDate;
 
-        public Builder(EmployeeInformationGenerator generator, String employeeTypeName, Integer employeeTypeId, String identityCard, Integer wage, String nationality,int status) {
+        public Builder(EmployeeInformationGenerator generator, String employeeTypeName, Integer employeeTypeId, String identityCard, Integer wage, String nationality, int status) {
             this.employeeTypeName = employeeTypeName;
             this.employeeTypeId = employeeTypeId;
             this.identityCard = identityCard;
@@ -73,7 +72,7 @@ public class EmployeeBO {
             this.sex = generator.getSex();
             this.telephoneNumber = generator.getTelephoneNumber();
             this.internalName = generator.getInternalName();
-            this.status=status;
+            this.status = status;
         }
 
         public Builder setEmployeeAddress(String employeeAddress) {

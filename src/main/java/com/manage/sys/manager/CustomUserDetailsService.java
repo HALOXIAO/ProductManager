@@ -1,4 +1,4 @@
-package com.manage.sys.Manager;
+package com.manage.sys.manager;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

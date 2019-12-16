@@ -1,4 +1,4 @@
-package com.manage.sys.Controller;
+package com.manage.sys.controller;
 
 
 import com.manage.sys.payload.LoginRequest;

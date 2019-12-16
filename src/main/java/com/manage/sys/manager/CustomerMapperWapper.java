@@ -1,6 +1,6 @@
-package com.manage.sys.Manager;
+package com.manage.sys.manager;
 
-import com.manage.sys.DAO.CustomerMapper;
+import com.manage.sys.dao.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

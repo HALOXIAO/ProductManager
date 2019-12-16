@@ -1,4 +1,4 @@
-package com.manage.sys.Config;
+package com.manage.sys.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;

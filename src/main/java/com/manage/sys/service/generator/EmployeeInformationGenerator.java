@@ -1,8 +1,6 @@
-package com.manage.sys.Service.Generator;
+package com.manage.sys.service.generator;
 
 public class EmployeeInformationGenerator {
-    private EmployeeInformationGenerator() {
-    }
 
     private String employeeName;
     private String internalName;
