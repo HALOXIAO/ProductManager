@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Slf4j
@@ -23,7 +24,7 @@ public class AuthController {
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/login")
-    public String login(@Valid @RequestBody LoginRequest loginRequest) {
+    public String login(@Valid @RequestBody LoginRequest loginRequest, HttpSession session) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmailOrPhone(),loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

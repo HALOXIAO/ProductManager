@@ -7,6 +7,8 @@ public class TODOList {
 
 /*
 * TODO List:
-*  Mybatis Plus、Program监控、
+*  架构演进
+*  Mybatis Plus、Program监控、会话管理、日志、MQ
+*
 * */
 
