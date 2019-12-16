@@ -1,21 +1,28 @@
-package com.manage.sys.entity;
+package com.manage.sys.entity.PO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.sql.Timestamp;
 
 @TableName("user")
 public class User {
 
     private Long userId;
-
     private String username;
-
+    private String telehone;
     private String password;
-
     private Long employeeId;
-
     private int status;
+    private Timestamp registerTime;
 
+
+    public String getTelehone() {
+        return telehone;
+    }
+
+    public void setTelehone(String telehone) {
+        this.telehone = telehone;
+    }
 
     public Long getUserId() {
         return this.userId;
@@ -55,5 +62,26 @@ public class User {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Timestamp getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Timestamp registerTime) {
+        this.registerTime = registerTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", telehone='" + telehone + '\'' +
+                ", password='" + password + '\'' +
+                ", employeeId=" + employeeId +
+                ", status=" + status +
+                ", registerTime=" + registerTime +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.manage.sys.entity;
+package com.manage.sys.entity.PO;
 
 
 import com.baomidou.mybatisplus.annotation.TableName;

@@ -1,7 +1,7 @@
 package com.manage.sys.Service;
 
 import com.manage.sys.DAO.RoleMapper;
-import com.manage.sys.entity.RolePO;
+import com.manage.sys.entity.PO.RolePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
