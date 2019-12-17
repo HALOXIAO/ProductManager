@@ -1,8 +1,8 @@
 package com.manage.sys.entity.BO;
 
-import com.manage.sys.service.generator.PurchaseOrderInformationGenerator;
+        import com.manage.sys.service.generator.PurchaseOrderInformationGenerator;
 
-import java.sql.Timestamp;
+        import java.sql.Timestamp;
 
 /**
  * 最后一定要记得TM的build！！！！！
