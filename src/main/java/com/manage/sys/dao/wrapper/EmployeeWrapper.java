@@ -1,4 +1,4 @@
-package com.manage.sys.dao.wapper;
+package com.manage.sys.dao.wrapper;
 
 import com.manage.sys.dao.EmployeeMapper;
 import com.manage.sys.entity.PO.EmployeePO;

@@ -1,4 +1,4 @@
-package com.manage.sys.dao.wapper;
+package com.manage.sys.dao.wrapper;
 
 import com.manage.sys.dao.RoleMapper;
 import com.manage.sys.entity.PO.RolePO;

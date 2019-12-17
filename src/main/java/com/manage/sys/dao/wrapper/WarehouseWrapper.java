@@ -1,4 +1,4 @@
-package com.manage.sys.dao.wapper;
+package com.manage.sys.dao.wrapper;
 
 import com.manage.sys.dao.WarehouseMapper;
 import com.manage.sys.entity.PO.WarehousePO;
@@ -20,3 +20,5 @@ public class WarehouseWrapper {
     }
 
 }
+
+
