@@ -21,5 +21,8 @@ public class RoleWrapper implements RoleWrapperInterface {
         return roleMapper.getById(id);
     }
 
-
+    @Override
+    public Boolean updateRole(RolePO role) {
+        return roleMapper.update(role,null);
+    }
 }

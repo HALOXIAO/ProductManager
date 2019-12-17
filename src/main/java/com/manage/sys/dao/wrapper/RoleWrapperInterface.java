@@ -8,4 +8,6 @@ public interface RoleWrapperInterface {
 
     public RolePO searchRoleById(int id);
 
+    public Boolean updateRole(RolePO role);
+
 }

@@ -7,4 +7,6 @@ public interface EmployeeWrapperInterface {
     public Boolean addEmployee(EmployeePO employee);
 
     public EmployeePO searchEmployeeById(long id);
+
+    public Boolean updateEmployee(EmployeePO employee);
 }

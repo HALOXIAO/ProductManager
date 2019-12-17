@@ -22,5 +22,8 @@ public class EmployeeWrapper implements EmployeeWrapperInterface {
         return employeeMapper.getById(id);
     }
 
-
+    @Override
+    public Boolean updateEmployee(EmployeePO employee) {
+        return employeeMapper.update(employee,null);
+    }
 }
