@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.sql.Timestamp;
 
 @TableName("user")
-public class User {
+public class UserPO {
 
     private Long userId;
     private String username;

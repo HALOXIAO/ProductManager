@@ -13,7 +13,6 @@ public class LogAspect {
 
     @Before("execution(* com.manage.sys.controller..*.*(..))")
     public void test() {
-        Logger logger = LoggerFactory.getLogger(Object.class);
-        
+
     }
 }
