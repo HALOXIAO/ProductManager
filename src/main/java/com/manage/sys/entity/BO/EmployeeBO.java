@@ -4,6 +4,9 @@ import com.manage.sys.service.generator.EmployeeInformationGenerator;
 import com.manage.sys.manager.common.utils.Convert;
 import java.sql.Date;
 
+/**
+* 最后一定要记得TM的build！！！！！
+* */
 public class EmployeeBO {
     private final Integer employeeTypeId;
     private final String employeeTypeName;

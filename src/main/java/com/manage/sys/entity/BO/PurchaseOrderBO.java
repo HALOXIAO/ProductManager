@@ -4,7 +4,9 @@ import com.manage.sys.service.generator.PurchaseOrderInformationGenerator;
 
 import java.sql.Timestamp;
 
-
+/**
+ * 最后一定要记得TM的build！！！！！
+ * */
 public class PurchaseOrderBO {
     private final Long purchaseId;
     private final String purchaseOrder;
