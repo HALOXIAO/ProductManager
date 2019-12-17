@@ -116,6 +116,15 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
+<!--日志-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+<!--日志-->
+
+
     </dependencies>
 
     <build>
