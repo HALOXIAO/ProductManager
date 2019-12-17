@@ -19,6 +19,4 @@ public class RoleBO {
         this.status = status;
         this.description = description;
     }
-
-
 }
