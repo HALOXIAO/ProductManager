@@ -2,6 +2,8 @@ package com.manage.sys.manager;
 
 import com.manage.sys.entity.PO.RolePO;
 import com.manage.sys.entity.PO.UserPO;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,6 +12,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Data
+@AllArgsConstructor
 public class CustomUserDetails implements UserDetails {
 
 

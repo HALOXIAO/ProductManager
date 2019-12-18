@@ -6,9 +6,9 @@ import com.manage.sys.entity.PO.EmployeePO;
 
 
 public interface EmployeeServiceInterface {
-    public void AddEmployee(EmployeePO employee);
+    public void addEmployee(EmployeePO employee);
 
-    public void SelectEmployee(EmployeePO employee);
+    public void selectEmployee(EmployeePO employee);
 
-    public void UpdateEmployee(EmployeePO employee);
+    public void updateEmployee(EmployeePO employee);
 }
