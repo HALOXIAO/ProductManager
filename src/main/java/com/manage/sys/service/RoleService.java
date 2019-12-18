@@ -1,17 +1,23 @@
 package com.manage.sys.service;
 
-import com.baomidou.mybatisplus.extension.api.R;
+import com.manage.sys.entity.PO.RolePO;
 import com.manage.sys.manager.middledao.RoleBaseServiceInterface;
-import com.manage.sys.manager.middledao.impl.RoleBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-@Service
 
 public class RoleService {
 
     @Autowired
-    RoleBaseService roleBaseServiceInterface;
+    RoleBaseServiceInterface roleBaseServiceInterface;
 
+
+     public void searchRole(RolePO rolePO){
+         roleBaseServiceInterface.selectRole(rolePO);
+     }
+     public void addRole(RolePO rolePO){
+         roleBaseServiceInterface.addRole(rolePO);
+     }
+     public void updateRole(RolePO rolePO){
+         roleBaseServiceInterface.updateRole(rolePO);
+     }
 
 }
