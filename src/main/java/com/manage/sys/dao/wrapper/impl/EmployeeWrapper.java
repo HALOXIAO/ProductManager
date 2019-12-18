@@ -13,9 +13,7 @@ public class EmployeeWrapper implements EmployeeWrapperInterface {
     EmployeeMapper employeeMapper;
 
     @Override
-    public Boolean addEmployee(EmployeePO employee) {
-        return employeeMapper.save(employee);
-    }
+    public Boolean addEmployee(EmployeePO employee) { return employeeMapper.save(employee); }
 
     @Override
     public EmployeePO searchEmployeeById(long id) {
