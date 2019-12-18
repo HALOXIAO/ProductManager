@@ -29,7 +29,7 @@ public class RoleService {
     public Boolean updateRole(RolePO rolePO) {
         roleWrapper.updateRole(rolePO);
         boolean flag1 = roleWrapper.updateRole(rolePO);
-        if (rolePO.getRoleName().equals("")) {
+        if (!rolePO.getRoleName().equals("")) {
             UpdateCondition updateCondition = new UpdateCondition();
             UpdateWrapper<EmployeePO> wrapper = updateCondition.updateEmployeeBy("role_name", rolePO.getRoleName());
             boolean flag2 = employeeWrapper.updateEmployeeBySomeThing(wrapper);
@@ -37,4 +37,5 @@ public class RoleService {
         }
         return flag1;
     }
+
 }
