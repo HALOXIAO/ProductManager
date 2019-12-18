@@ -14,6 +14,6 @@ public interface EmployeeWrapperInterface {
 
     EmployeePO searchEmployeeBySomeThing(QueryWrapper<EmployeePO> queryWrapper);
 
-    Boolean updateEmployeeBySomeThing(UpdateWrapper<EmployeePO> queryWrapper);
-    public Boolean deleteEmployee(EmployeePO employee);
+    Boolean updateEmployeeBySomeThing(EmployeePO employee,UpdateWrapper<EmployeePO> updateWrapper);
+    public Boolean deleteEmployee(EmployeePO employee,UpdateWrapper<EmployeePO> updateWrapper);
 }

@@ -39,13 +39,13 @@ public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrap
     }
 
     @Override
-    public Boolean updateEmployeeBySomeThing(UpdateWrapper<EmployeePO> queryWrapper) {
-        return employeeMapper.update(queryWrapper);
+    public Boolean updateEmployeeBySomeThing(EmployeePO entity,UpdateWrapper<EmployeePO> updateWrapper) {
+        return employeeMapper.update(entity,updateWrapper);
     }
 
     @Override
-    public Boolean deleteEmployee(EmployeePO employee){
+    public Boolean deleteEmployee(EmployeePO employee,UpdateWrapper<EmployeePO> updateWrapper){
         employee.setStatus(EMPLOYEE_STATUS_CODE_QUIT.ordinal());
-        return employeeMapper.update(employee,null);
+        return employeeMapper.update(employee,updateWrapper);
     }
 }
