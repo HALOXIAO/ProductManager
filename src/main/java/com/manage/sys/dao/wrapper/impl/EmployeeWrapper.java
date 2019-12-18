@@ -36,6 +36,7 @@ public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrap
     public EmployeePO searchEmployeeBySomeThing( QueryWrapper<EmployeePO> queryWrapper) {
         return employeeMapper.getOne(queryWrapper);
     }
+
     @Override
     public Boolean updateEmployeeBySomeThing(QueryWrapper<EmployeePO> queryWrapper) {
         return employeeMapper.update(queryWrapper);
