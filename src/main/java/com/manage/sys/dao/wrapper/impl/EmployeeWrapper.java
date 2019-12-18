@@ -5,6 +5,8 @@ import com.manage.sys.entity.PO.EmployeePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrapperInterface {
 
@@ -26,4 +28,9 @@ public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrap
         return employeeMapper.update(employee,null);
     }
 
+
+    @Override
+    public List<EmployeePO> updateAllEmployee(EmployeePO employeePO){
+
+    }
 }
