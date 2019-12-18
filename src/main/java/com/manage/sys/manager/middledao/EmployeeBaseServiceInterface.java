@@ -7,7 +7,7 @@ import com.manage.sys.entity.PO.EmployeePO;
 /**
  * Employee的基础操作
  * */
-public interface EmployeeServiceInterface {
+public interface EmployeeBaseServiceInterface {
     public Boolean addEmployee(EmployeePO employee);
 
     public EmployeePO selectEmployee(EmployeePO employee);

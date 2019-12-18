@@ -7,7 +7,7 @@ import com.manage.sys.entity.PO.RolePO;
 /**
  * Role的基础操作
  * */
-public interface RoleServiceInterface {
+public interface RoleBaseServiceInterface {
     public Boolean addRole(RolePO role);
 
     public RolePO selectRole(RolePO role);
