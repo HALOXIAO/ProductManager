@@ -14,10 +14,10 @@ public class RolePO {
     private String description;
 
     @NotBlank(message = "status can't be null")
-    private int status;
+    private Integer status;
     private java.sql.Timestamp updateTime;
 
-    public RolePO getRoleId() {
+    public Integer getRoleId() {
         return this.roleId;
     }
 
@@ -41,11 +41,11 @@ public class RolePO {
         this.description = description;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

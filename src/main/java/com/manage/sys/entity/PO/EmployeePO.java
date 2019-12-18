@@ -9,7 +9,7 @@ public class EmployeePO {
     private String employeeName;
     private String telephoneNumber;
     private String identityCard;
-    private int sex;
+    private Integer sex;
     private String nationality;
     private java.sql.Date birthDate;
     private Integer wage;
@@ -19,7 +19,7 @@ public class EmployeePO {
     private String employeeTypeName;
     private Long updater;
     private java.sql.Timestamp updateTime;
-    private int status;
+    private Integer status;
 
     public Long getEmployeeId() {
         return this.employeeId;
@@ -61,11 +61,11 @@ public class EmployeePO {
         this.identityCard = identityCard;
     }
 
-    public int getSex() {
+    public Integer getSex() {
         return this.sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -141,11 +141,11 @@ public class EmployeePO {
         this.updateTime = updateTime;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
