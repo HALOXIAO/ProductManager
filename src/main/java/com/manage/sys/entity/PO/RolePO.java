@@ -3,7 +3,6 @@ package com.manage.sys.entity.PO;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @TableName("role")
 public class RolePO {
@@ -18,7 +17,7 @@ public class RolePO {
     private int status;
     private java.sql.Timestamp updateTime;
 
-    public Integer getRoleId() {
+    public RolePO getRoleId() {
         return this.roleId;
     }
 
