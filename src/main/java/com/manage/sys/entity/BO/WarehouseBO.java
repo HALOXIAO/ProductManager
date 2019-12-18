@@ -12,18 +12,18 @@ public class WarehouseBO {
     private String address;
     private int status;
 
-    private WarehouseBO(Warehouser warehouser) {
-        this.warehouseName = warehouser.warehouseName;
-        this.warehouseCode = warehouser.warehouseCode;
-        this.description = warehouser.description;
-        this.status = warehouser.status;
-        this.warehouseId =warehouser.warehouseId;
-        this.address = warehouser.address;
-        this.administratorId=warehouser.administratorId;
-        this.updaterId=warehouser.updaterId;
+    private WarehouseBO(Warehouse warehouse) {
+        this.warehouseName = warehouse.warehouseName;
+        this.warehouseCode = warehouse.warehouseCode;
+        this.description = warehouse.description;
+        this.status = warehouse.status;
+        this.warehouseId =warehouse.warehouseId;
+        this.address = warehouse.address;
+        this.administratorId=warehouse.administratorId;
+        this.updaterId=warehouse.updaterId;
     }
 
-    public static class Warehouser {
+    public static class Warehouse {
         private long warehouseId;
         private String warehouseName;
         private String warehouseCode;
@@ -35,13 +35,12 @@ public class WarehouseBO {
         private String address;
         private int status;
 
-        public Warehouser()
-        public WarehouseBO setAdministratorId(long administratorId) {
+        public Warehouse setAdministratorId(long administratorId) {
             this.administratorId = administratorId;
             return this;
         }
 
-        public WarehouseBO setUpdaterId(long updaterId) {
+        public Warehouse setUpdaterId(long updaterId) {
             this.updaterId = updaterId;
             return this;
         }

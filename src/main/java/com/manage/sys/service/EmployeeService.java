@@ -32,7 +32,7 @@ public class EmployeeService {
         if(employeePO.getStatus()!=null){
             UpdateCondition<Integer,UserPO> updateCondition = new UpdateCondition<>();
             UpdateWrapper<UserPO> wrapper = updateCondition.updateEmployeeBy("status",employeePO.getStatus());
-            boolean flag2 =
+            boolean flag2 =true;
             return flag1 && flag2;
         }
         return flag1;

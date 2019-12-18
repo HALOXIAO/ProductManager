@@ -99,6 +99,12 @@
         </dependency>
 <!--Redis-->
 
+<!--Session-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.session</groupId>-->
+<!--            <artifactId>spring-session-data-redis</artifactId>-->
+<!--        </dependency>-->
+<!--Session-->
 
         <!--        <dependency>-->
         <!--            <groupId>org.springframework.session</groupId>-->
@@ -130,18 +136,6 @@
 <!--            <version>1.2.3</version>-->
 <!--        </dependency>-->
 <!--日志-->
-
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-
 
     </dependencies>
 

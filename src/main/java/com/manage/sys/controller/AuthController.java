@@ -1,6 +1,7 @@
 package com.manage.sys.controller;
 
 
+import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.payload.LoginRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +26,15 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@Valid @RequestBody LoginRequest loginRequest, HttpSession session) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmailOrPhone(),loginRequest.getPassword()));
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmailOrPhone(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return"";
+        return "";
 
     }
 
     @PostMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request) {
         request.getSession();
         return "";
     }

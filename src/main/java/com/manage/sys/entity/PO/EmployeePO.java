@@ -17,7 +17,6 @@ public class EmployeePO {
     private String eMail;
     private Integer employeeTypeId;
     private String employeeTypeName;
-    private Long updater;
     private java.sql.Timestamp updateTime;
     private Integer status;
 
@@ -125,13 +124,7 @@ public class EmployeePO {
         this.employeeTypeName = employeeTypeName;
     }
 
-    public Long getUpdater() {
-        return this.updater;
-    }
 
-    public void setUpdater(Long updater) {
-        this.updater = updater;
-    }
 
     public java.sql.Timestamp getUpdateTime() {
         return this.updateTime;
@@ -165,7 +158,6 @@ public class EmployeePO {
                 ", eMail='" + eMail + '\'' +
                 ", employeeTypeId=" + employeeTypeId +
                 ", employeeTypeName='" + employeeTypeName + '\'' +
-                ", updater=" + updater +
                 ", updateTime=" + updateTime +
                 ", status=" + status +
                 '}';

@@ -1,5 +1,7 @@
 package com.manage.sys.manager;
 
+import com.manage.sys.config.status.ROLE_STATUS_CODE;
+import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.RolePO;
 import com.manage.sys.entity.PO.UserPO;
 import lombok.AllArgsConstructor;
@@ -11,68 +13,66 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
-public class CustomUserDetails implements UserDetails {
+public class
+CustomUserDetails implements UserDetails {
 
 
-    private Long userId;
     private String username;
-    private String telehone;
     private String password;
     private Long employeeId;
     private int status;
-    private Timestamp registerTime;
-    private List<Integer> roles;
-    private Collection<? extends  GrantedAuthority> authorities;
+    /**
+     * 权限列表
+     */
+    private Collection<? extends GrantedAuthority> authorities;
 
 
-    public static CustomUserDetails create(UserPO userPO, List<RolePO> roles,List<RolePO> permissions){
-        List<Integer> roleId = roles.stream()
-                .map(RolePO::getRoleId)
-                .collect(Collectors.toList());
-
+    public static CustomUserDetails create(UserPO user, EmployeePO employee, List<String> permissions) {
         List<GrantedAuthority> authorities = permissions.stream()
-                .map(permission -> new SimpleGrantedAuthority(permission.getRoleName()))
+                .map(permission -> new SimpleGrantedAuthority(employee.getEmployeeTypeName()))
                 .collect(Collectors.toList());
-        return new CustomUserDetails();
+
+
+        return new CustomUserDetails(user.getUsername(), user.getPassword(), user.getEmployeeId(), user.getStatus(), authorities);
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return Objects.equals(this.status, ROLE_STATUS_CODE.ROLE_STATUS_CODE_USE.getValue());
     }
 }
