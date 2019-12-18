@@ -9,5 +9,5 @@ public interface RoleWrapperInterface {
   RolePO searchRoleById(int id);
 
    Boolean updateRole(RolePO role);
-
+    public Boolean deleteRole(RolePO role);
 }

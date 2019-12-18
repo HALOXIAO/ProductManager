@@ -1,11 +1,14 @@
 package com.manage.sys.dao.wrapper.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.manage.sys.dao.EmployeeMapper;
 import com.manage.sys.entity.PO.EmployeePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static com.manage.sys.config.status.EMPLOYEE_STATUS_CODE.EMPLOYEE_STATUS_CODE_QUIT;
 
 @Service
 public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrapperInterface {
@@ -30,7 +33,17 @@ public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrap
 
 
     @Override
-    public List<EmployeePO> updateAllEmployee(EmployeePO employeePO){
+    public EmployeePO searchEmployeeBySomeThing( QueryWrapper<EmployeePO> queryWrapper) {
+        return employeeMapper.getOne(queryWrapper);
+    }
+    @Override
+    public Boolean updateEmployeeBySomeThing(QueryWrapper<EmployeePO> queryWrapper) {
+        return employeeMapper.update(queryWrapper);
+    }
 
+    @Override
+    public Boolean deleteEmployee(EmployeePO employee){
+        employee.setStatus(EMPLOYEE_STATUS_CODE_QUIT.ordinal());
+        return employeeMapper.update(employee,null);
     }
 }
