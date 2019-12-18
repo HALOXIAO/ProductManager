@@ -9,7 +9,7 @@ public class RolePO {
 
     private Integer roleId;
 
-    @NotBlank(message="role_name can not be null")
+    @NotBlank(message = "role_name can not be null")
     private String roleName;
     private String description;
 
@@ -48,7 +48,6 @@ public class RolePO {
     public void setStatus(Integer status) {
         this.status = status;
     }
-
 
 
     public java.sql.Timestamp getUpdateTime() {

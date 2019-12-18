@@ -5,6 +5,7 @@ import com.manage.sys.entity.PO.UserPO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.sql.Timestamp;
@@ -28,13 +29,15 @@ public class CustomUserDetails implements UserDetails {
     private Collection<? extends  GrantedAuthority> authorities;
 
 
-    public static CustomUserDetails create(UserPO userPO, List<RolePO> roles,List<RolePO> permission){
+    public static CustomUserDetails create(UserPO userPO, List<RolePO> roles,List<RolePO> permissions){
         List<Integer> roleId = roles.stream()
                 .map(RolePO::getRoleId)
                 .collect(Collectors.toList());
 
-        List<GrantedAuthority> authorities = permission.stream()
-                .filter()
+        List<GrantedAuthority> authorities = permissions.stream()
+                .map(permission -> new SimpleGrantedAuthority(permission.getRoleName()))
+                .collect(Collectors.toList());
+        return new CustomUserDetails();
     }
 
     @Override
