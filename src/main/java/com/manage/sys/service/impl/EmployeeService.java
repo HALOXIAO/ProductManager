@@ -6,7 +6,7 @@ import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.service.EmployeeServiceInterface;
 
 
-public class EmployeeService implements EmployeeServiceInterface {
+public class EmployeeService  implements EmployeeServiceInterface {
 
     @Override
     public void addEmployee(EmployeePO employee){
@@ -24,4 +24,7 @@ public class EmployeeService implements EmployeeServiceInterface {
     public void DeleteEmployee(EmployeeWrapper employeewrapper){
 
     }
+
+
+
 }

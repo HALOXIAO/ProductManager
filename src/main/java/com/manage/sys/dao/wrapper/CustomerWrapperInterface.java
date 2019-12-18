@@ -9,7 +9,7 @@ public interface CustomerWrapperInterface {
 
     /**
      * @param
-     * @return ajlkw
+     * @return
      * */
     public Boolean addCustomer(CustomerPO customer);
 

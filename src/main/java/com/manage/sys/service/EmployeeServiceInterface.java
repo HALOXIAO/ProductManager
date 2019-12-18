@@ -2,14 +2,13 @@ package com.manage.sys.service;
 
 
 
-import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
 import com.manage.sys.entity.PO.EmployeePO;
 
 
 public interface EmployeeServiceInterface {
-    public void AddEmployee(EmployeeWrapper employeewrapper);
+    public void AddEmployee(EmployeePO employee);
 
-    public void SelectEmployee(EmployeeWrapper employeewrapper);
+    public void SelectEmployee(EmployeePO employee);
 
-    public void DeleteEmployee(EmployeeWrapper employeewrapper);
+    public void UpdateEmployee(EmployeePO employee);
 }

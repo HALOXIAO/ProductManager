@@ -1,17 +1,37 @@
 package com.manage.sys.manager;
 
+import com.manage.sys.entity.PO.RolePO;
+import com.manage.sys.entity.PO.UserPO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CustomUserDetails implements UserDetails {
 
-    private Long id;
+
+    private Long userId;
+    private String username;
+    private String telehone;
+    private String password;
+    private Long employeeId;
+    private int status;
+    private Timestamp registerTime;
+    private List<Integer> roles;
+    private Collection<? extends  GrantedAuthority> authorities;
 
 
+    public static CustomUserDetails create(UserPO userPO, List<RolePO> roles,List<RolePO> permission){
+        List<Integer> roleId = roles.stream()
+                .map(RolePO::getRoleId)
+                .collect(Collectors.toList());
 
-
+        List<GrantedAuthority> authorities = permission.stream()
+                .filter()
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -17,4 +17,4 @@ public enum EMPLOYEE_STATUS_CODE {
     public int getValue() {
         return value;
     }
-    }
+}

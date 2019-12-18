@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 public class EmployeeWrapper implements EmployeeWrapperInterface {
 
     @Autowired
-    EmployeeMapper employeeMapper;
+    private EmployeeMapper employeeMapper;
 
     @Override
-    public Boolean addEmployee(EmployeePO employee) { return employeeMapper.save(employee); }
+    public Boolean addEmployee(EmployeePO employee) {
+        return employeeMapper.save(employee);
+    }
 
     @Override
     public EmployeePO searchEmployeeById(long id) {
