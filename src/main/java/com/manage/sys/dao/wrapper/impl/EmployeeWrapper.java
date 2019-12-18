@@ -1,6 +1,7 @@
 package com.manage.sys.dao.wrapper.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.EmployeeMapper;
 import com.manage.sys.entity.PO.EmployeePO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrap
     }
 
     @Override
-    public Boolean updateEmployeeBySomeThing(QueryWrapper<EmployeePO> queryWrapper) {
+    public Boolean updateEmployeeBySomeThing(UpdateWrapper<EmployeePO> queryWrapper) {
         return employeeMapper.update(queryWrapper);
     }
 

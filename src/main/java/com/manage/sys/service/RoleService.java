@@ -1,6 +1,10 @@
 package com.manage.sys.service;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.manage.sys.dao.condition.UpdateCondition;
+import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
 import com.manage.sys.dao.wrapper.impl.RoleWrapper;
+import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.RolePO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,15 +13,28 @@ public class RoleService {
     @Autowired
     RoleWrapper roleWrapper;
 
+    @Autowired
+    EmployeeWrapper employeeWrapper;
 
-     public void searchRole(RolePO rolePO){
-         roleWrapper.selectRole(rolePO);
-     }
-     public void addRole(RolePO rolePO){
-         roleWrapper.addRole(rolePO);
-     }
-     public void updateRole(RolePO rolePO){
-         roleWrapper.updateRole(rolePO);
-     }
 
+    public void searchRoleById(int id) {
+        roleWrapper.searchRoleById(id);
+    }
+
+    public Boolean addRole(RolePO rolePO) {
+        return roleWrapper.createRole(rolePO);
+    }
+
+
+    public Boolean updateRole(RolePO rolePO) {
+        roleWrapper.updateRole(rolePO);
+        boolean flag1 = roleWrapper.updateRole(rolePO);
+        if (rolePO.getRoleName().equals("")) {
+            UpdateCondition updateCondition = new UpdateCondition();
+            UpdateWrapper<EmployeePO> wrapper = updateCondition.updateEmployeeBy("role_name", rolePO.getRoleName());
+            boolean flag2 = employeeWrapper.updateEmployeeBySomeThing(wrapper);
+            return flag1 && flag2;
+        }
+        return flag1;
+    }
 }
