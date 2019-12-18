@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public  class EmployeeWrapperInterface implements com.manage.sys.dao.wrapper.EmployeeWrapperInterface {
+public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrapperInterface {
 
     @Autowired
     private EmployeeMapper employeeMapper;

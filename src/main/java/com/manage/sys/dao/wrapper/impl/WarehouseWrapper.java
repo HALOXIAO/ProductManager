@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public  class WarehouseWrapperInterface implements com.manage.sys.dao.wrapper.WarehouseWrapperInterface {
+public  class WarehouseWrapper implements com.manage.sys.dao.wrapper.WarehouseWrapperInterface {
 
     @Autowired
     WarehouseMapper warehouseMapper;
