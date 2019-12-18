@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RoleWrapper implements RoleWrapperInterface {
+public  class RoleWrapper implements RoleWrapperInterface {
     @Autowired
     RoleMapper roleMapper;
 
@@ -25,4 +25,6 @@ public class RoleWrapper implements RoleWrapperInterface {
     public Boolean updateRole(RolePO role) {
         return roleMapper.update(role,null);
     }
+
+
 }

@@ -4,8 +4,8 @@ import com.manage.sys.entity.PO.ProductPO;
 
 public interface ProductWrapperInterface {
 
-    public Boolean addProduct(ProductPO product);
+    Boolean addProduct(ProductPO product);
 
-    public ProductPO searchProductById(int id);
+    ProductPO searchProductById(int id);
 
 }

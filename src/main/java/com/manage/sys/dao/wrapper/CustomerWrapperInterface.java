@@ -5,15 +5,14 @@ import com.manage.sys.entity.PO.CustomerPO;
 /**
 * Customer表的基本操作
 * */
-public interface CustomerWrapperInterface {
+public interface     CustomerWrapperInterface {
 
     /**
      * @param
      * @return
      * */
-    public Boolean addCustomer(CustomerPO customer);
+ Boolean addCustomer(CustomerPO customer);
 
-    public CustomerPO searchCustomerById(long id);
-
+CustomerPO searchCustomerById(long id);
 
 }

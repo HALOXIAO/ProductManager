@@ -1,20 +1,19 @@
 package com.manage.sys.dao.wrapper.impl;
 
 import com.manage.sys.dao.EmployeeMapper;
-import com.manage.sys.dao.wrapper.EmployeeWrapperInterface;
 import com.manage.sys.entity.PO.EmployeePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmployeeWrapper implements EmployeeWrapperInterface {
+public  class EmployeeWrapperInterface implements com.manage.sys.dao.wrapper.EmployeeWrapperInterface {
 
     @Autowired
     private EmployeeMapper employeeMapper;
 
     @Override
     public Boolean addEmployee(EmployeePO employee) {
-        return employeeMapper.save(employee);
+        return null;
     }
 
     @Override
@@ -26,4 +25,5 @@ public class EmployeeWrapper implements EmployeeWrapperInterface {
     public Boolean updateEmployee(EmployeePO employee) {
         return employeeMapper.update(employee,null);
     }
+
 }

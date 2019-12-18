@@ -4,9 +4,9 @@ import com.manage.sys.entity.PO.EmployeePO;
 
 public interface EmployeeWrapperInterface {
 
-    public Boolean addEmployee(EmployeePO employee);
+    Boolean addEmployee(EmployeePO employee);
 
-    public EmployeePO searchEmployeeById(long id);
+    EmployeePO searchEmployeeById(long id);
 
-    public Boolean updateEmployee(EmployeePO employee);
+    Boolean updateEmployee(EmployeePO employee);
 }
