@@ -15,18 +15,18 @@ public class WarehouseBO {
     private String description;
     private String warehouseCode;
 
-    private WarehouseBO(Warehouse warehouse) {
-        this.warehouseName = warehouse.warehouseName;
-        this.warehouseCode = warehouse.warehouseCode;
-        this.description = warehouse.description;
-        this.status = warehouse.status;
-        this.warehouseId =warehouse.warehouseId;
-        this.address = warehouse.address;
-        this.administratorId=warehouse.administratorId;
-        this.updaterId=warehouse.updaterId;
+    private WarehouseBO(Builder builder) {
+        this.warehouseName = builder.warehouseName;
+        this.warehouseCode = builder.warehouseCode;
+        this.description = builder.description;
+        this.status = builder.status;
+        this.warehouseId =builder.warehouseId;
+        this.address = builder.address;
+        this.administratorId=builder.administratorId;
+        this.updaterId=builder.updaterId;
     }
 
-    public static class Warehouser {
+    public static class Builder {
         /**
          * 必传参数
          */
@@ -43,7 +43,7 @@ public class WarehouseBO {
         private String description;
         private String warehouseCode;
 
-        public Warehouser(WarehouseInformationGenerator generator,long administratorId,long updaterId,String description,int status,String warehouseCode){
+        public Builder(WarehouseInformationGenerator generator,long administratorId,long updaterId,String description,int status,String warehouseCode){
             this.warehouseId=generator.getWarehouseId();
             this.warehouseName=generator.getWarehouseName();
             this.address=generator.getAddress();
@@ -54,12 +54,12 @@ public class WarehouseBO {
             this.warehouseCode=warehouseCode;
         }
 
-        public Warehouser setDescription(String description) {
+        public Builder setDescription(String description) {
             this.description = description;
             return this;
         }
 
-        public Warehouser setWarehouse(String warehouseCode) {
+        public Builder setWarehouse(String warehouseCode) {
             this.warehouseCode = warehouseCode;
             return this;
         }
