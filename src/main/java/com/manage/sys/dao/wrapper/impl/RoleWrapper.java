@@ -8,6 +8,7 @@ import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.RolePO;
 import com.manage.sys.entity.PO.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 import static com.manage.sys.config.status.EMPLOYEE_STATUS_CODE.EMPLOYEE_STATUS_CODE_QUIT;
 import static com.manage.sys.config.status.ROLE_STATUS_CODE.ROLE_STATUS_CODE_ABUNDANT;
 
-@Service
+@Component
 public  class RoleWrapper implements RoleWrapperInterface {
     @Autowired
     RoleMapper roleMapper;
@@ -53,6 +54,6 @@ public  class RoleWrapper implements RoleWrapperInterface {
 
     @Override
     public List<RolePO> getAllRole() {
-        return roleMapper.list();
+        return null;
     }
 }
