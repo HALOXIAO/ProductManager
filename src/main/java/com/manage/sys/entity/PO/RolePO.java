@@ -13,17 +13,19 @@ public class RolePO {
     private Integer roleId;
 
     @NotEmpty(message = "role_name can not be null")
-    @Size(min = 2,max = 20,message = "roleName must  be between 2 and 10")
+    @Size(min = 2, max = 20, message = "roleName must  be between 2 and 10")
+
+    @NotEmpty
     @TableId(type = IdType.INPUT)
     private String roleName;
-
+    @TableField
     private String description;
 
-    @NotEmpty(message = "status can't be null")
+    @TableField
     private Integer status;
 
+    @TableField
     private java.sql.Timestamp updateTime;
-
 
 
     public Integer getRoleId() {

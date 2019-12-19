@@ -21,23 +21,23 @@ import javax.validation.Valid;
 @RestController
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @PostMapping("/login")
-    public String login(@Valid @RequestBody LoginRequest loginRequest, HttpSession session) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmailOrPhone(), loginRequest.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        return "";
-
-    }
-
-    @PostMapping("/logout")
-    public String logout(HttpServletRequest request,HttpSession session) {
-        request.getSession();
-        return "";
-    }
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
+//
+//    @PostMapping("/login")
+//    public String login(@Valid @RequestBody LoginRequest loginRequest, HttpSession session) {
+//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmailOrPhone(), loginRequest.getPassword()));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//
+//        return "";
+//
+//    }
+//
+//    @PostMapping("/logout")
+//    public String logout(HttpServletRequest request,HttpSession session) {
+//        request.getSession();
+//        return "";
+//    }
 
 
 }

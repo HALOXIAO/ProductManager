@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LogAspect {
 
-    @Before("execution(* com.manage.sys.controller.AuthController.login(..))")
     public void LoginLog() {
 
     }

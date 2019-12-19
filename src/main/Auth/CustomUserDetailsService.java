@@ -1,6 +1,7 @@
-package com.manage.sys.manager;
+package com.manage.sys.Auth;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.manage.sys.config.status.ROLE_STATUS_CODE;
 import com.manage.sys.dao.wrapper.UserWrapperInterface;
 import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
 import com.manage.sys.dao.wrapper.impl.RoleWrapper;
@@ -9,15 +10,19 @@ import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.RolePO;
 import com.manage.sys.entity.PO.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
-public class CustomUserDetailsService implements UserDetailsService {
+@Configuration
+public class CustomUserDetailsService implements UserDetailsService  {
 
     @Autowired
     UserWrapper userWrapper;
@@ -36,8 +41,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         QueryWrapper<EmployeePO> employeeQueryWrapper = new QueryWrapper<>();
         employeeQueryWrapper.eq("internal_name", username);
         EmployeePO employee = employeeWrapper.searchEmployeeBySomeThing(employeeQueryWrapper);
-        employee.getEmployeeTypeName();
-        List<String> permission = List.of(employee.getEmployeeTypeName());
-        return CustomUserDetails.create(user, employee, permission);
+        List<GrantedAuthority> list = new ArrayList<>();
+        list.add( new SimpleGrantedAuthority(employee.getEmployeeTypeName()));
+        return new User(username,user.getPassword(), Objects.equals(user.getStatus(), ROLE_STATUS_CODE.ROLE_STATUS_CODE_USE.getValue())
+        ,true,true,true,list);
     }
 }
