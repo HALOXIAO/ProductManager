@@ -24,5 +24,15 @@ public class RoleController {
 
     }
 
+    @PutMapping("/role")
+    public String putRole(@Valid @ResponseBody RolePO role){
+
+    }
+
+    @GetMapping("/role")
+    public RolePO getRoleByName(String Name){
+
+    }
+
 
 }
