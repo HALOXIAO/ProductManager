@@ -8,7 +8,7 @@ public class WarehouseBO {
     private long administratorId;
     private long updaterId;
     private String address;
-    private int status;
+    private Integer status;
     private java.sql.Timestamp updateTime;
 
     //optional
@@ -36,14 +36,14 @@ public class WarehouseBO {
         private long updaterId;
         private java.sql.Timestamp updateTime;
         private String address;
-        private int status;
+        private Integer status;
         /**
          * 选传参数
          */
         private String description;
         private String warehouseCode;
 
-        public Builder(WarehouseInformationGenerator generator,long administratorId,long updaterId,String description,int status,String warehouseCode){
+        public Builder(WarehouseInformationGenerator generator,long administratorId,long updaterId,String description,Integer status,String warehouseCode){
             this.warehouseId=generator.getWarehouseId();
             this.warehouseName=generator.getWarehouseName();
             this.address=generator.getAddress();

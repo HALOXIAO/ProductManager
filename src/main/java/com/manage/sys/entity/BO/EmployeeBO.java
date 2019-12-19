@@ -16,13 +16,13 @@ public class EmployeeBO {
     private final String employeeName;
     private final String internalName;
     private final String telephoneNumber;
-    private final int sex;
+    private final Integer sex;
     private final java.sql.Date birthDate;
 
     //Optional
     private final String employeeAddress;
     private final String eMail;
-    private final int status;
+    private final Integer status;
 
 
     private EmployeeBO(Builder builder) {
@@ -54,8 +54,8 @@ public class EmployeeBO {
         private final String employeeName;
         private final String internalName;
         private final String telephoneNumber;
-        private final int sex;
-        private final int status;
+        private final Integer sex;
+        private final Integer status;
 
 
         /**
@@ -65,7 +65,7 @@ public class EmployeeBO {
         private String eMail;
         private java.sql.Date birthDate;
 
-        public Builder(EmployeeInformationGenerator generator, String employeeTypeName, Integer employeeTypeId, String identityCard, Integer wage, String nationality, int status) {
+        public Builder(EmployeeInformationGenerator generator, String employeeTypeName, Integer employeeTypeId, String identityCard, Integer wage, String nationality, Integer status) {
             this.employeeTypeName = employeeTypeName;
             this.employeeTypeId = employeeTypeId;
             this.identityCard = identityCard;

@@ -34,7 +34,7 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    public String logout(HttpServletRequest request) {
+    public String logout(HttpServletRequest request,HttpSession session) {
         request.getSession();
         return "";
     }

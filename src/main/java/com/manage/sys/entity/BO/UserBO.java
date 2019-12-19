@@ -9,9 +9,9 @@ public class UserBO {
 
     private Long employeeId;
     private String telephone;
-    private int status;
+    private Integer status;
 
-    public UserBO(String username, String password, Long employeeId, String telephone, int status) {
+    public UserBO(String username, String password, Long employeeId, String telephone, Integer status) {
         this.username = username;
         this.password = password;
         this.employeeId = employeeId;

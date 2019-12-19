@@ -21,7 +21,7 @@ public class PurchaseOrderBO {
     private final Integer totalPrice;
     private final String description;
     private final Long reviewer;
-    private final int reviewState;
+    private final Integer reviewState;
     private final String reviewName;
     private final String reviewResult;
     private final java.sql.Timestamp reviewTime;
@@ -29,8 +29,8 @@ public class PurchaseOrderBO {
     private final Long founderId;
     private final String founderName;
     private final Long updaterId;
-    private final int status;
-    private final int orderType;
+    private final Integer status;
+    private final Integer orderType;
 
     public PurchaseOrderBO(Builder builder) {
         this.purchaseId = builder.purchaseId;
@@ -76,8 +76,8 @@ public class PurchaseOrderBO {
         private final Long founderId;
         private final String founderName;
         private final Long updaterId;
-        private final int status;
-        private final int orderType;
+        private final Integer status;
+        private final Integer orderType;
 
         /**
          * Optional
@@ -86,13 +86,13 @@ public class PurchaseOrderBO {
         private String warehouseName;
         private String description;
         private Long reviewer;
-        private int reviewState;
+        private Integer reviewState;
         private String reviewName;
         private String reviewResult;
         private java.sql.Timestamp reviewTime;
         private java.sql.Timestamp storageTime;
 
-        public Builder(PurchaseOrderInformationGenerator generator, Long founderId, String founderName, Long updaterId, int status, int orderType) {
+        public Builder(PurchaseOrderInformationGenerator generator, Long founderId, String founderName, Long updaterId, Integer status, Integer orderType) {
             this.purchaseId = generator.getPurchaseId();
             this.purchaseOrder = generator.getPurchaseOrder();
             this.productId = generator.getProductId();
@@ -124,7 +124,7 @@ public class PurchaseOrderBO {
             return this;
         }
 
-        public Builder setReviewState(int reviewState) {
+        public Builder setReviewState(Integer reviewState) {
             this.reviewState = reviewState;
             return this;
         }
