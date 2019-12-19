@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 @Component
 public  class CustomerWrapper implements CustomerWrapperInterface {
 
+    @Override
+    public Boolean updateCustomer(CustomerPO customerPO) {
+        return null;
+    }
+
     @Autowired
     CustomerMapper customerMapper;
 

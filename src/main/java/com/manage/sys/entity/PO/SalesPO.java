@@ -2,9 +2,8 @@ package com.manage.sys.entity.PO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 
-import javax.persistence.*;
 
-@TableName(name = "sales")
+@TableName(value = "sales")
 public class SalesPO {
     private Long salesId;
 

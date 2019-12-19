@@ -12,6 +12,12 @@ public  class WarehouseWrapper implements com.manage.sys.dao.wrapper.WarehouseWr
     @Autowired
     WarehouseMapper warehouseMapper;
 
+
+    @Override
+    public Boolean updateWarehouse(WarehousePO warehousePO) {
+        return null;
+    }
+
     @Override
     public Boolean addWarehouseWrapper(WarehousePO warehouse) {
         return warehouseMapper.save(warehouse);

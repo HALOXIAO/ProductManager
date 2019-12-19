@@ -3,10 +3,12 @@ package com.manage.sys.service;
         import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
         import com.manage.sys.dao.condition.UpdateCondition;
         import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
+        import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
         import com.manage.sys.dao.wrapper.impl.SalesWrapper;
         import com.manage.sys.dao.wrapper.impl.UserWrapper;
         import com.manage.sys.entity.PO.EmployeePO;
         import com.manage.sys.entity.PO.PurchaseOrderPO;
+        import com.manage.sys.entity.PO.SalesPO;
         import com.manage.sys.entity.PO.UserPO;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.stereotype.Component;
@@ -22,7 +24,7 @@ public class EmployeeService {
     @Autowired
     SalesWrapper salesWrapper;
     @Autowired
-    PurchaseWrapper purchaseWrapper;
+    PurchaseOrderWrapper purchaseWrapper;
 
     public void searchEmployeeById(int id){
         employeeWrapper.searchEmployeeById(id);
@@ -53,8 +55,7 @@ public class EmployeeService {
             UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("founderName",employeePO.getEmployeeName());
             SalesPO salesPO=new SalesPO();
             salesPO.setCommodityName(employeePO.getEmployeeName());
-            boolean flag2 = salesWrapper.updateSalesBySomeThing(salesPO, wrapper);
-            return flag1 && flag2;
+            return flag1 ;
         }
         return flag1;
     }
@@ -67,8 +68,7 @@ public class EmployeeService {
             UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("reviewName",employeePO.getEmployeeName());
             SalesPO salesPO=new SalesPO();
             salesPO.setCommodityName(employeePO.getEmployeeName());
-            boolean flag2 = salesWrapper.updateSalesBySomeThing(salesPO, wrapper);
-            return flag1 && flag2;
+            return flag1 ;
         }
         return flag1;
     }
@@ -80,9 +80,7 @@ public class EmployeeService {
             UpdateCondition<String,UserPO> updateCondition=new UpdateCondition<>();
             UpdateWrapper<UserPO> wrapper = updateCondition.updateEmployeeBy("employeeName",employeePO.getEmployeeName());
             UserPO userPO=new UserPO();
-            userPO.setCommodityName(employeePO.getEmployeeName());
-            boolean flag2 = userWrapper.updateUserBySomeThing(userPO, wrapper);
-            return flag1 && flag2;
+            return flag1 ;
         }
         return flag1;
     }
@@ -95,8 +93,7 @@ public class EmployeeService {
             UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("founderName",employeePO.getEmployeeName());
        PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
             purchaseOrderPO.setCommodityName(employeePO.getEmployeeName());
-            boolean flag2 = purchaseWrapper.updatePurchaseOrderBySomeThing(purchaseOrderPO, wrapper);
-            return flag1 && flag2;
+            return flag1 ;
         }
         return flag1;
     }
@@ -109,8 +106,7 @@ public class EmployeeService {
             UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("reviewName",employeePO.getEmployeeName());
             PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
             purchaseOrderPO.setCommodityName(employeePO.getEmployeeName());
-            boolean flag2 = purchaseWrapper.updatePurchaseOrderBySomeThing(purchaseOrderPO, wrapper);
-            return flag1 && flag2;
+            return flag1 ;
         }
         return flag1;
     }

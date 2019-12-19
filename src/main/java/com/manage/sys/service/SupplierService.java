@@ -32,8 +32,7 @@ public class SupplierService {
             UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("supplierName",supplierPO.getSupplierName());
             PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
             purchaseOrderPO.setCommodityName(supplierPO.getSupplierName());
-            boolean flag2 = purchaseOrderWrapper.updatepurchaseOrderBySomeThing(purchaseOrderPO, wrapper);
-            return flag1 && flag2;
+            return flag1;
         }
         return flag1;
     }

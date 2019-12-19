@@ -17,23 +17,26 @@ import static com.manage.sys.config.status.EMPLOYEE_STATUS_CODE.EMPLOYEE_STATUS_
 import static com.manage.sys.config.status.ROLE_STATUS_CODE.ROLE_STATUS_CODE_ABUNDANT;
 
 @Component
-public  class RoleWrapper implements RoleWrapperInterface {
+public class RoleWrapper implements RoleWrapperInterface {
     @Autowired
     RoleMapper roleMapper;
 
     @Override
     public Boolean createRole(RolePO role) {
-        return roleMapper.save(role);
+        int flag = roleMapper.insert(role);
+        return 1== flag;
     }
+
 
     @Override
     public RolePO searchRoleById(int id) {
-        return roleMapper.getById(id);
+        return roleMapper.selectById(id);
     }
 
     @Override
     public Boolean updateRole(RolePO role) {
-        return roleMapper.update(role,null);
+        int flag= roleMapper.update(role, null);
+        return 1 == flag;
     }
 
     @Override
@@ -49,7 +52,7 @@ public  class RoleWrapper implements RoleWrapperInterface {
 
     @Override
     public RolePO searchRoleBySomeThing(QueryWrapper<RolePO> wrapper) {
-        return roleMapper.getOne(wrapper);
+        return roleMapper.selectOne(wrapper);
     }
 
     @Override

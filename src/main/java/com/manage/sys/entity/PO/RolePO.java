@@ -12,8 +12,6 @@ public class RolePO {
     @TableId(type = IdType.AUTO)
     private Integer roleId;
 
-    @NotEmpty(message = "role_name can not be null")
-    @Size(min = 2, max = 20, message = "roleName must  be between 2 and 10")
 
     @NotEmpty
     @TableId(type = IdType.INPUT)

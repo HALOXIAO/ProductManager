@@ -28,7 +28,6 @@ public class SalesService {
 
     public void updateCommodityName(ProductPO productPO){productService.updateProductForSales(productPO);}
 
-    public void updateCustomerName(CustomerPO customerPO){customerService.updateCustomerForSales(customerPO);}
 
     public void updateFounderName(EmployeePO employeePO){employeeService.updateEmployeeFounderForSales(employeePO);}
 

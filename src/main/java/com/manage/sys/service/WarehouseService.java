@@ -1,11 +1,13 @@
 package com.manage.sys.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.dao.wrapper.impl.WarehouseWrapper;
 import com.manage.sys.entity.PO.PurchaseOrderPO;
+import com.manage.sys.entity.PO.SalesPO;
 import com.manage.sys.entity.PO.WarehousePO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,8 +33,7 @@ public class WarehouseService {
                 UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("warehouseName",warehousePO.getWarehouseName());
                 PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
                 purchaseOrderPO.setCommodityName(warehousePO.getWarehouseName());
-                boolean flag2 = purchaseOrderWrapper.updatepurchaseOrderBySomeThing(purchaseOrderPO, wrapper);
-                return flag1 && flag2;
+                return flag1 ;
             }
             return flag1;
         }
@@ -43,10 +44,8 @@ public class WarehouseService {
             if(!("").equals(warehousePO.getWarehouseName())){
                 UpdateCondition<String, SalesPO> updateCondition=new UpdateCondition<>();
                 UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("warehouseName",warehousePO.getWarehouseName());
-                SalesPO salesPO=new SalesPO();
-                salesPO.(warehousePO.getWarehouseName());
-                boolean flag2=salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
-                return flag1 && flag2;
+                SalesPO salesPO=new SalesPO();;
+                return flag1 ;
             }
             return flag1;
     }

@@ -5,6 +5,7 @@ import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.CustomerWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.entity.PO.CustomerPO;
+import com.manage.sys.entity.PO.SalesPO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CustomerService {
@@ -29,8 +30,7 @@ public class CustomerService {
             UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("customerName", customerPO.getCustomerName());
             SalesPO salesPO = new SalesPO();
             salesPO.setCustomerName(customerPO.getCustomerName());
-            boolean flag2 = salesWrapper.updateSalesBySomeThing(salesPO, wrapper);
-            return flag1 && flag2;
+            return flag1;
         }
         return flag1;
     }

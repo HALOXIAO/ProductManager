@@ -8,6 +8,7 @@ import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.entity.PO.ProductPO;
 import com.manage.sys.entity.PO.PurchaseOrderPO;
+import com.manage.sys.entity.PO.SalesPO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ProductService {
@@ -38,8 +39,7 @@ public class ProductService {
             UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("commodityName",productPO.getCommodityName());
             PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
             purchaseOrderPO.setCommodityName(productPO.getCommodityName());
-            boolean flag2 = purchaseOrderWrapper.updatePurchaseOrderBySomeThing(productPO, wrapper);
-            return flag1 && flag2;
+            return flag1 ;
         }
         return flag1;
     }
@@ -48,12 +48,11 @@ public class ProductService {
         productWrapper.updateProduct(productPO);
         boolean flag1=productWrapper.updateProduct(productPO);
         if(!("").equals(productPO.getCommodityName())){
-            UpdateCondition<String,SalesPO> updateCondition=new UpdateCondition<>();
+            UpdateCondition<String, SalesPO> updateCondition=new UpdateCondition<>();
             UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("commodityName",productPO.getCommodityName());
             SalesPO salesPO=new SalesPO();
             salesPO.setCommodityName(productPO.getCommodityName());
-            boolean flag2=salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
-            return flag1 && flag2;
+            return flag1 ;
         }
         return flag1;
     }

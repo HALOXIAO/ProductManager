@@ -1,5 +1,7 @@
 package com.manage.sys.dao.wrapper.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.ProductMapper;
 import com.manage.sys.dao.wrapper.ProductWrapperInterface;
 import com.manage.sys.entity.PO.ProductPO;
@@ -19,9 +21,22 @@ public  class ProductWrapper implements ProductWrapperInterface {
     }
 
     @Override
-    public ProductPO searchProductById(Integer id) {
-        return productMapper.getById(id);
+    public ProductPO searchProductById(int id) {
+        return null;
     }
 
+    @Override
+    public Boolean updateProduct(ProductPO product) {
+        return null;
+    }
 
+    @Override
+    public Boolean deleteProductBySomething(ProductPO product, UpdateWrapper<ProductPO> updateWrapper) {
+        return null;
+    }
+
+    @Override
+    public ProductPO searchProductBySomething(QueryWrapper<ProductPO> wrapper) {
+        return null;
+    }
 }
