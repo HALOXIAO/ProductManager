@@ -19,7 +19,7 @@ public  class ProductWrapper implements ProductWrapperInterface {
     }
 
     @Override
-    public ProductPO searchProductById(int id) {
+    public ProductPO searchProductById(Integer id) {
         return productMapper.getById(id);
     }
 
