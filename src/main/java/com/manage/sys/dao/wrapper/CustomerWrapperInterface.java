@@ -17,4 +17,8 @@ public interface CustomerWrapperInterface {
 
     CustomerPO searchCustomerById(long id);
 
+    Boolean updateCustomer(CustomerPO customerPO);
+
+
+
 }

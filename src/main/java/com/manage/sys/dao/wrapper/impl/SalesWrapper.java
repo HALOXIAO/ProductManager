@@ -1,5 +1,6 @@
 package com.manage.sys.dao.wrapper.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.manage.sys.dao.wrapper.SalesWrapperInterface;
 import com.manage.sys.entity.PO.SalesPO;
 
@@ -10,7 +11,7 @@ public class SalesWrapper implements SalesWrapperInterface {
     }
 
     @Override
-    public SalesPO searchSalesById(int id) {
+    public SalesPO searchSalesById(Integer id) {
         return null;
     }
 
@@ -23,4 +24,7 @@ public class SalesWrapper implements SalesWrapperInterface {
     public Boolean updateSales(SalesPO sales) {
         return null;
     }
+
+    @Override
+    public  Boolean updateSalesBySomeThing(SalesPO salesPO, QueryWrapper<SalesPO> wrapper){}
 }

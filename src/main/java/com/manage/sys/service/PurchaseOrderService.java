@@ -1,5 +1,6 @@
 package com.manage.sys.service;
 
+import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.entity.PO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -29,8 +30,8 @@ public class PurchaseOrderService {
 
     public void updateSupplierName(SupplierPO supplierPO){supplierService.updateSupplierForPurchaseOrder(supplierPO);}
 
-    public void updateFounderName(EmployeePO employeePO){employeeService.updateEmployeeNameForFounder(employeePO); }
+    public void updateFounderName(EmployeePO employeePO){employeeService.updateEmployeeFounderForPurchaseOrder(employeePO); }
 
-    public void updateReviewName(EmployeePO employeePO){employeeService.updateEmployeeNameForReviewer(employeePO);}
+    public void updateReviewName(EmployeePO employeePO){employeeService.updateEmployeeReviewForPurchaseOrder(employeePO);}
 
 }

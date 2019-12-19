@@ -2,6 +2,8 @@ package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.condition.UpdateCondition;
+import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
+import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.dao.wrapper.impl.WarehouseWrapper;
 import com.manage.sys.entity.PO.PurchaseOrderPO;
 import com.manage.sys.entity.PO.SalesPO;
@@ -13,6 +15,8 @@ public class WarehouseService {
     WarehouseWrapper warehouseWrapper;
     @Autowired
     PurchaseOrderWrapper purchaseOrderWrapper;
+    @Autowired
+    SalesWrapper salesWrapper;
 
     public WarehousePO searchWarehouseById(int id){return warehouseWrapper.searchWarehouseById(id);}
 

@@ -30,7 +30,7 @@ public class CustomerService {
             UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("customerName",customerPO.getCustomerName());
             SalesPO salesPO=new SalesPO();
             salesPO.setCustomerName(customerPO.getCustomerName());
-            boolean flag2=salesWrapper.updateSalesBySomeThing(customerPO,wrapper);
+            boolean flag2=salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
             return flag1 && flag2;
         }
         return flag1;

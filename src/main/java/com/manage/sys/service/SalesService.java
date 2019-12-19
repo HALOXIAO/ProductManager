@@ -30,7 +30,7 @@ public class SalesService {
 
     public void updateCustomerName(CustomerPO customerPO){customerService.updateCustomerForSales(customerPO);}
 
-    public void updateFounderName(EmployeePO employeePO){employeeService.updateEmployeeNameForFounder(employeePO);}
+    public void updateFounderName(EmployeePO employeePO){employeeService.updateEmployeeFounderForSales(employeePO);}
 
-    public void updateReviewName(EmployeePO employeePO){employeeService.updateEmployeeNameForReviewer(employeePO);}
+    public void updateReviewName(EmployeePO employeePO){employeeService.updateEmployeeReviewForSales(employeePO);}
 }
