@@ -1,21 +1,30 @@
 package com.manage.sys.entity.PO;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @TableName("role")
 public class RolePO {
 
+    @TableId(type = IdType.AUTO)
     private Integer roleId;
 
-    @NotBlank(message = "role_name can not be null")
+    @NotEmpty(message = "role_name can not be null")
+    @Size(min = 2,max = 20,message = "roleName must  be between 2 and 10")
+    @TableId(type = IdType.INPUT)
     private String roleName;
+
     private String description;
 
-    @NotBlank(message = "status can't be null")
+    @NotEmpty(message = "status can't be null")
     private Integer status;
+
     private java.sql.Timestamp updateTime;
+
+
 
     public Integer getRoleId() {
         return this.roleId;

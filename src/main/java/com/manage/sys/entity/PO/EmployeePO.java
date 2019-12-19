@@ -1,12 +1,16 @@
 package com.manage.sys.entity.PO;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 
 @TableName("employee")
 public class EmployeePO {
+    @TableId(value = "employee_id", type = IdType.AUTO)
     private Long employeeId;
+    @TableId(value = "internal_name")
     private String internalName;
+    @TableField(value = "employee_name")
     private String employeeName;
+    @TableField(value = "telephone_number")
     private String telephoneNumber;
     private String identityCard;
     private Integer sex;
@@ -123,7 +127,6 @@ public class EmployeePO {
     public void setEmployeeTypeName(String employeeTypeName) {
         this.employeeTypeName = employeeTypeName;
     }
-
 
 
     public java.sql.Timestamp getUpdateTime() {

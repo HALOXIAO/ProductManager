@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.RolePO;
 import com.manage.sys.entity.PO.UserPO;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

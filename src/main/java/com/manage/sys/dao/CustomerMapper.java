@@ -5,6 +5,5 @@ import com.manage.sys.entity.PO.CustomerPO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
-@Mapper
 public interface CustomerMapper extends IService<CustomerPO> {
 }

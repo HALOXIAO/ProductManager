@@ -2,12 +2,16 @@ package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.condition.UpdateCondition;
+import com.manage.sys.dao.wrapper.EmployeeWrapperInterface;
+import com.manage.sys.dao.wrapper.RoleWrapperInterface;
 import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
 import com.manage.sys.dao.wrapper.impl.RoleWrapper;
 import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.RolePO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RoleService {
 
     @Autowired

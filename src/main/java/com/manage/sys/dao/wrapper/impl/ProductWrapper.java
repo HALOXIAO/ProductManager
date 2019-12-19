@@ -4,9 +4,10 @@ import com.manage.sys.dao.ProductMapper;
 import com.manage.sys.dao.wrapper.ProductWrapperInterface;
 import com.manage.sys.entity.PO.ProductPO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public  class ProductWrapper implements ProductWrapperInterface {
 
     @Autowired

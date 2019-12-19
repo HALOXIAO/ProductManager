@@ -5,13 +5,14 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.EmployeeMapper;
 import com.manage.sys.entity.PO.EmployeePO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static com.manage.sys.config.status.EMPLOYEE_STATUS_CODE.EMPLOYEE_STATUS_CODE_QUIT;
 
-@Service
+@Component
 public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrapperInterface {
 
     @Autowired

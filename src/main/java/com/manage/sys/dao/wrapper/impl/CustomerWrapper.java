@@ -4,9 +4,10 @@ import com.manage.sys.dao.CustomerMapper;
 import com.manage.sys.dao.wrapper.CustomerWrapperInterface;
 import com.manage.sys.entity.PO.CustomerPO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public  class CustomerWrapper implements CustomerWrapperInterface {
 
     @Autowired

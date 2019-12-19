@@ -3,6 +3,8 @@ package com.manage.sys.dao.wrapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.manage.sys.entity.PO.UserPO;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Service;
 
 public interface UserWrapperInterface {
 
