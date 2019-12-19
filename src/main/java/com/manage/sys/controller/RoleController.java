@@ -19,6 +19,5 @@ public class RoleController {
     @PostMapping("/role")
     public String createRole(@Valid @RequestBody RolePO role) {
        Boolean flag = roleService.addRole(role);
-       return flag.toString();
     }
 }

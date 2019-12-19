@@ -6,7 +6,6 @@ import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.dao.wrapper.impl.WarehouseWrapper;
 import com.manage.sys.entity.PO.PurchaseOrderPO;
-import com.manage.sys.entity.PO.SalesPO;
 import com.manage.sys.entity.PO.WarehousePO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -45,7 +44,7 @@ public class WarehouseService {
                 UpdateCondition<String, SalesPO> updateCondition=new UpdateCondition<>();
                 UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("warehouseName",warehousePO.getWarehouseName());
                 SalesPO salesPO=new SalesPO();
-                salesPO.setCommodityName(warehousePO.getWarehouseName());
+                salesPO.(warehousePO.getWarehouseName());
                 boolean flag2=salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
                 return flag1 && flag2;
             }

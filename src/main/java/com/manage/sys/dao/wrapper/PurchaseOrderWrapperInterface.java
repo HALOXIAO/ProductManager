@@ -5,7 +5,7 @@ import com.manage.sys.entity.PO.PurchaseOrderPO;
 import com.manage.sys.entity.PO.RolePO;
 
 public interface PurchaseOrderWrapperInterface {
-    Boolean updatepurchaseOrderBySomeThing(PurchaseOrderPO purchaseOrderPO, QueryWrapper<PurchaseOrderPO> wrapper);
+    Boolean updatePurchaseOrderBySomeThing(PurchaseOrderPO purchaseOrderPO, QueryWrapper<PurchaseOrderPO> wrapper);
 
     Boolean addPurchaseOrder(PurchaseOrderPO purchaseOrderPO);
 

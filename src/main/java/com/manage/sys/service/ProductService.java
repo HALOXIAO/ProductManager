@@ -4,11 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.ProductMapper;
 import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.ProductWrapper;
+import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
-import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.ProductPO;
 import com.manage.sys.entity.PO.PurchaseOrderPO;
-import com.manage.sys.entity.PO.SalesPO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class ProductService {
@@ -39,7 +38,7 @@ public class ProductService {
             UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("commodityName",productPO.getCommodityName());
             PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
             purchaseOrderPO.setCommodityName(productPO.getCommodityName());
-            boolean flag2 = purchaseOrderWrapper.updateProductBySomeThing(productPO, wrapper);
+            boolean flag2 = purchaseOrderWrapper.updatePurchaseOrderBySomeThing(productPO, wrapper);
             return flag1 && flag2;
         }
         return flag1;

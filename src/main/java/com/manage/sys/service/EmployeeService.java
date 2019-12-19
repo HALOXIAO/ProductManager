@@ -2,20 +2,14 @@ package com.manage.sys.service;
 
         import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
         import com.manage.sys.dao.condition.UpdateCondition;
-        import com.manage.sys.dao.wrapper.EmployeeWrapperInterface;
         import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
         import com.manage.sys.dao.wrapper.impl.SalesWrapper;
         import com.manage.sys.dao.wrapper.impl.UserWrapper;
         import com.manage.sys.entity.PO.EmployeePO;
         import com.manage.sys.entity.PO.PurchaseOrderPO;
-        import com.manage.sys.entity.PO.SalesPO;
         import com.manage.sys.entity.PO.UserPO;
         import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.context.annotation.ComponentScan;
-        import org.springframework.context.annotation.Configuration;
-        import org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper;
         import org.springframework.stereotype.Component;
-        import org.springframework.stereotype.Service;
 
 @Component
 public class EmployeeService {
