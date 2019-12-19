@@ -11,6 +11,8 @@ public interface PurchaseOrderWrapperInterface {
 
     PurchaseOrderPO getById(Integer id);
 
+    Boolean updatePurchaseOrderBySomeThing(PurchaseOrderPO purchaseOrderPO,  QueryWrapper<PurchaseOrderPO> wrapper);
+
 
 
 }
