@@ -30,7 +30,7 @@ public class UserWrapper implements UserWrapperInterface {
 
     @Override
     public UserPO searchUser(QueryWrapper<UserPO>wrapper){
-        return userMapper.getOne(wrapper);
+        return userMapper.selectOne(wrapper);
     }
 
 }

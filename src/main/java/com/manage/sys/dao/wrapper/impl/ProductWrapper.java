@@ -7,7 +7,6 @@ import com.manage.sys.dao.wrapper.ProductWrapperInterface;
 import com.manage.sys.entity.PO.ProductPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public  class ProductWrapper implements ProductWrapperInterface {
@@ -17,17 +16,17 @@ public  class ProductWrapper implements ProductWrapperInterface {
 
     @Override
     public Boolean addProduct(ProductPO product) {
-        return productMapper.save(product);
+        return productMapper.insert(product)==1;
     }
 
     @Override
     public ProductPO searchProductById(int id) {
-        return null;
+        return productMapper.selectById(id);
     }
 
     @Override
     public Boolean updateProduct(ProductPO product) {
-        return null;
+        return productMapper.update(product,null)==1;
     }
 
     @Override
@@ -37,6 +36,6 @@ public  class ProductWrapper implements ProductWrapperInterface {
 
     @Override
     public ProductPO searchProductBySomething(QueryWrapper<ProductPO> wrapper) {
-        return null;
+        return productMapper.selectOne(wrapper);
     }
 }

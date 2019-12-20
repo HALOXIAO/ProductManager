@@ -1,6 +1,7 @@
 package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.manage.sys.dao.SalesMapper;
 import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.CustomerWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class CustomerService {
     @Autowired
     CustomerWrapper customerWrapper;
+
     @Autowired
     SalesWrapper salesWrapper;
 
@@ -18,19 +20,18 @@ public class CustomerService {
         return customerWrapper.searchCustomerById(id);
     }
 
-    public boolean addCustomer(CustomerPO customerPO) {
+    public Boolean addCustomer(CustomerPO customerPO) {
         return customerWrapper.addCustomer(customerPO);
     }
 
-    public boolean updateCustomer(CustomerPO customerPO) {
-        customerWrapper.updateCustomer(customerPO);
-        boolean flag1 = customerWrapper.updateCustomer(customerPO);
-        if (!("").equals(customerPO.getCustomerName())) {
-            UpdateCondition<String, SalesPO> updateCondition = new UpdateCondition<>();
-            UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("customerName", customerPO.getCustomerName());
-            SalesPO salesPO = new SalesPO();
-            salesPO.setCustomerName(customerPO.getCustomerName());
-            return flag1;
+    public Boolean updateCustomer(CustomerPO customerPO) {
+        Boolean flag1 = customerWrapper.updateCustomer(customerPO);
+        if (!("".equals(customerPO.getCustomerName()))) {
+            UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
+            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("customer_name", customerPO.getCustomerName());
+            SalesPO sales = new SalesPO();
+            sales.setCustomerName(customerPO.getCustomerName());
+            return salesWrapper.updateSalesBySomeThing(sales, wrapper) && flag1;
         }
         return flag1;
     }

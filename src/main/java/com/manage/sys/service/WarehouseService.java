@@ -1,6 +1,5 @@
 package com.manage.sys.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
@@ -19,35 +18,37 @@ public class WarehouseService {
     @Autowired
     SalesWrapper salesWrapper;
 
-    public WarehousePO searchWarehouseById(int id){return warehouseWrapper.searchWarehouseById(id);}
+    public WarehousePO searchWarehouseById(int id) {
+        return warehouseWrapper.searchWarehouseById(id);
+    }
 
-    public boolean addWarehouse(WarehousePO warehousePO){
+    public boolean addWarehouse(WarehousePO warehousePO) {
         return warehouseWrapper.addWarehouseWrapper(warehousePO);
     }
 
-    public boolean updateWarehouseForPurchaseOrder(WarehousePO warehousePO){
-            warehouseWrapper.updateWarehouse(warehousePO);
-            boolean flag1= warehouseWrapper.updateWarehouse(warehousePO);
-            if(!("").equals(warehousePO.getWarehouseName())){
-                UpdateCondition<String, PurchaseOrderPO> updateCondition=new UpdateCondition<>();
-                UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("warehouseName",warehousePO.getWarehouseName());
-                PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
-                purchaseOrderPO.setCommodityName(warehousePO.getWarehouseName());
-                return flag1 ;
-            }
-            return flag1;
+    public Boolean updateWarehouse(WarehousePO warehousePO) {
+        Boolean flag1 = warehouseWrapper.updateWarehouse(warehousePO);
+        if (!("").equals(warehousePO.getWarehouseName())) {
+            return updateWarehouseForPurchaseOrder(warehousePO) && updateWarehouseForSales(warehousePO) && flag1;
         }
+        return flag1;
+    }
 
-        public boolean updateWarehouseForSales(WarehousePO warehousePO){
-            warehouseWrapper.updateWarehouse(warehousePO);
-            boolean flag1= warehouseWrapper.updateWarehouse(warehousePO);
-            if(!("").equals(warehousePO.getWarehouseName())){
-                UpdateCondition<String, SalesPO> updateCondition=new UpdateCondition<>();
-                UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("warehouseName",warehousePO.getWarehouseName());
-                SalesPO salesPO=new SalesPO();;
-                return flag1 ;
-            }
-            return flag1;
+
+    private Boolean updateWarehouseForPurchaseOrder(WarehousePO warehousePO) {
+        UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
+        UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("warehouse_name", warehousePO.getWarehouseName());
+        PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
+        purchaseOrderPO.setWarehouseName(warehousePO.getWarehouseName());
+        return purchaseOrderWrapper.updatePurchaseOrderBySomeThing(purchaseOrderPO, wrapper);
+    }
+
+    private Boolean updateWarehouseForSales(WarehousePO warehousePO) {
+        UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
+        UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("warehouse_name", warehousePO.getWarehouseName());
+        SalesPO salesPO = new SalesPO();
+        salesPO.setWarehouseName(warehousePO.getWarehouseName());
+        return salesWrapper.updateSalesBySomeThing(salesPO, wrapper);
     }
 
 }

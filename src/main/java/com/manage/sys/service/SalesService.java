@@ -16,20 +16,17 @@ public class SalesService {
     @Autowired
     EmployeeService employeeService;
 
-    public SalesPO searchSalesById(int id){
+    public SalesPO searchSalesById(int id) {
         return salesWrapper.searchSalesById(id);
     }
 
-    public boolean addSales(SalesPO salesPO){
+    public boolean addSales(SalesPO salesPO) {
         return salesWrapper.createSales(salesPO);
     }
 
-    public void updateWarehouseName(WarehousePO warehousePO){warehouseService.updateWarehouseForSales(warehousePO);}
 
-    public void updateCommodityName(ProductPO productPO){productService.updateProductForSales(productPO);}
+    public Boolean updateSales(SalesPO salesPO) {
+        return salesWrapper.updateSales(salesPO);
+    }
 
-
-    public void updateFounderName(EmployeePO employeePO){employeeService.updateEmployeeFounderForSales(employeePO);}
-
-    public void updateReviewName(EmployeePO employeePO){employeeService.updateEmployeeReviewForSales(employeePO);}
 }

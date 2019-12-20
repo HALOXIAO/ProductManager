@@ -1,6 +1,7 @@
 package com.manage.sys.dao.wrapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.entity.PO.SalesPO;
 
 public interface SalesWrapperInterface {
@@ -12,6 +13,6 @@ public interface SalesWrapperInterface {
 
      Boolean updateSales(SalesPO sales);
 
-     Boolean updateSalesBySomeThing(SalesPO salesPO, QueryWrapper<SalesPO> wrapper);
+     Boolean updateSalesBySomeThing(SalesPO salesPO, UpdateWrapper<SalesPO> wrapper);
 
 }

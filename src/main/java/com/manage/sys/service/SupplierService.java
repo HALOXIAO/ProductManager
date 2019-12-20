@@ -13,30 +13,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class SupplierService {
     @Autowired
     SupplierWrapper supplierWrapper;
+
     @Autowired
     PurchaseOrderWrapper purchaseOrderWrapper;
 
-    public SupplierPO searchSupplierById(int id){
+    public SupplierPO searchSupplierById(int id) {
         return supplierWrapper.getById(id);
     }
 
-    public boolean addSupplier(SupplierPO supplierPO){
+    public boolean addSupplier(SupplierPO supplierPO) {
         return supplierWrapper.addSupplier(supplierPO);
     }
 
-    public Boolean updateSupplierForPurchaseOrder(SupplierPO supplierPO){
-        supplierWrapper.updateSupplier(supplierPO);
-        boolean flag1=supplierWrapper.updateSupplier(supplierPO);
-        if(!("").equals(supplierPO.getSupplierName())){
-            UpdateCondition<String,PurchaseOrderPO> updateCondition=new UpdateCondition<>();
-            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("supplierName",supplierPO.getSupplierName());
-            PurchaseOrderPO purchaseOrderPO=new PurchaseOrderPO();
-            purchaseOrderPO.setCommodityName(supplierPO.getSupplierName());
-            return flag1;
+    public Boolean updateSupplier(SupplierPO supplierPO) {
+        Boolean flag1 = supplierWrapper.updateSupplier(supplierPO);
+        if (!("".equals(supplierPO.getSupplierName()))) {
+            UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
+            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("customer_name", supplierPO.getSupplierName());
+            PurchaseOrderPO purchaseOrder = new PurchaseOrderPO();
+            purchaseOrder.setSupplierName(supplierPO.getSupplierName());
+            return purchaseOrderWrapper.updatePurchaseOrderBySomeThing(purchaseOrder, wrapper) && flag1;
         }
         return flag1;
-    }
 
+    }
 
 
 }

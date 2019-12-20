@@ -7,18 +7,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
 
+    @Autowired
+    EmployeeService employeeService;
 
-    @PostMapping("/{employee}")
-    public String addEmployee(HttpServletRequest request, @PathVariable String employee,@RequestBody EmployeePO employeePO){
-
+    @PostMapping()
+    public String addEmployee(HttpServletRequest request, @Valid @RequestBody EmployeePO employee) {
+        employeeService.addEmployee(employee);
         return "";
     }
 
+    @GetMapping("{employee}")
+    public EmployeePO getEmployee(@PathVariable String username) {
+        return employeeService.searchEmployeeByInternalName(username);
+    }
 
+    @PutMapping()
+    public String updateEmployee() {
+        return "";
+    }
+
+    @DeleteMapping()
+    public String deleteEmployee() {
+        return "";
+    }
 
 }

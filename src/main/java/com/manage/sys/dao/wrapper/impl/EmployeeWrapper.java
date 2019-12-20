@@ -25,28 +25,28 @@ public  class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrap
 
     @Override
     public EmployeePO searchEmployeeById(long id) {
-        return employeeMapper.getById(id);
+        return employeeMapper.selectById(id);
     }
 
     @Override
     public Boolean updateEmployee(EmployeePO employee) {
-        return employeeMapper.update(employee,null);
+        return employeeMapper.update(employee,null)==1;
     }
 
 
     @Override
     public EmployeePO searchEmployeeBySomeThing( QueryWrapper<EmployeePO> queryWrapper) {
-        return employeeMapper.getOne(queryWrapper);
+        return employeeMapper.selectOne(queryWrapper);
     }
 
     @Override
     public Boolean updateEmployeeBySomeThing(EmployeePO entity,UpdateWrapper<EmployeePO> updateWrapper) {
-        return employeeMapper.update(entity,updateWrapper);
+        return employeeMapper.update(entity,updateWrapper)==1;
     }
 
     @Override
     public Boolean deleteEmployee(EmployeePO employee,UpdateWrapper<EmployeePO> updateWrapper){
         employee.setStatus(EMPLOYEE_STATUS_CODE_QUIT.ordinal());
-        return employeeMapper.update(employee,updateWrapper);
+        return employeeMapper.update(employee,updateWrapper)==1;
     }
 }

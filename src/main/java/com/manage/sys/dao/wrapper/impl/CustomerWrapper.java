@@ -20,13 +20,13 @@ public  class CustomerWrapper implements CustomerWrapperInterface {
 
     @Override
     public Boolean addCustomer(CustomerPO customer) {
-        return customerMapper.save(customer);
+        return customerMapper.insert(customer)==1;
 
     }
 
     @Override
     public CustomerPO searchCustomerById(long id) {
-        return customerMapper.getById(id);
+        return customerMapper.selectById(id);
     }
 
 }

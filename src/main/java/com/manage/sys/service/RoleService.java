@@ -34,8 +34,7 @@ public class RoleService {
         roleWrapper.updateRole(rolePO);
         boolean flag1 = roleWrapper.updateRole(rolePO);
         if (!("").equals(rolePO.getRoleName())) {
-            UpdateCondition updateCondition = new UpdateCondition();
-            UpdateWrapper<EmployeePO> wrapper = updateCondition.updateEmployeeBy("role_name", rolePO.getRoleName());
+            UpdateWrapper<EmployeePO> wrapper = new UpdateCondition<EmployeePO>().updateConditionByEqOne("role_name", rolePO.getRoleName());
             EmployeePO employee = new EmployeePO();
             employee.setEmployeeTypeName(rolePO.getRoleName());
             boolean flag2 = employeeWrapper.updateEmployeeBySomeThing(employee, wrapper);

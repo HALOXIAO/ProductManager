@@ -22,16 +22,17 @@ public class RoleController {
     @DeleteMapping("/role")
     public String deleteRole(@Valid @RequestBody RolePO role){
 
+        return null;
     }
 
     @PutMapping("/role")
-    public String putRole(@Valid @ResponseBody RolePO role){
+    public String updateRole(@Valid @RequestBody RolePO role){
 
     }
 
     @GetMapping("/role")
-    public RolePO getRoleByName(String Name){
-
+    public RolePO getRoleByName(String username){
+        return roleService
     }
 
 

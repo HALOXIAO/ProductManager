@@ -20,12 +20,12 @@ public  class WarehouseWrapper implements com.manage.sys.dao.wrapper.WarehouseWr
 
     @Override
     public Boolean addWarehouseWrapper(WarehousePO warehouse) {
-        return warehouseMapper.save(warehouse);
+        return warehouseMapper.insert(warehouse)==1;
     }
 
     @Override
     public WarehousePO searchWarehouseById(long id) {
-        return warehouseMapper.getById(id);
+        return warehouseMapper.selectById(id);
     }
 
 }
