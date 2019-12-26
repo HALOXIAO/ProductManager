@@ -21,11 +21,14 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+
+    /**
+    * 当需求5w条数据以上的时候，需要对分页查询方法进行优化
+    * */
     @GetMapping("/all")
-    @Cacheable()
+    @Cacheable("employee")
     public ResultBean<List<EmployeePO>> getAllEmployee(@RequestParam("size") Long sum, @RequestParam("page") Long page) {
-        employeeService.getEmployeeWithPage(sum, page);
-        return new ResultBean<>();
+        return new ResultBean<>(employeeService.getEmployeeWithPage(sum, page));
     }
 
     @PostMapping()

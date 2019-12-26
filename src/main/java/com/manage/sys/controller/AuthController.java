@@ -4,8 +4,6 @@ package com.manage.sys.controller;
 import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.payload.LoginRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
