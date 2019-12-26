@@ -6,6 +6,8 @@ import com.manage.sys.entity.PO.EmployeePO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 public interface EmployeeWrapperInterface {
 
     Boolean addEmployee(EmployeePO employee);
@@ -16,6 +18,11 @@ public interface EmployeeWrapperInterface {
 
     EmployeePO searchEmployeeBySomeThing(QueryWrapper<EmployeePO> queryWrapper);
 
-    Boolean updateEmployeeBySomeThing(EmployeePO employee,UpdateWrapper<EmployeePO> updateWrapper);
-    public Boolean deleteEmployee(EmployeePO employee,UpdateWrapper<EmployeePO> updateWrapper);
+    Boolean updateEmployeeBySomeThing(EmployeePO employee, UpdateWrapper<EmployeePO> updateWrapper);
+
+    public Boolean deleteEmployee(EmployeePO employee, UpdateWrapper<EmployeePO> updateWrapper);
+
+    public List<EmployeePO> searchEmployeeWithPage(Long sum, Long page, QueryWrapper<EmployeePO> wrapper);
+
+
 }

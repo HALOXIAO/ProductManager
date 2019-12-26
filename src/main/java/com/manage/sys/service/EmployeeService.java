@@ -13,6 +13,8 @@ import com.manage.sys.entity.PO.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class EmployeeService {
 
@@ -22,6 +24,12 @@ public class EmployeeService {
 
     @Autowired
     UserWrapper userWrapper;
+
+    public List<EmployeePO> getEmployeeWithPage(Long sum, Long page) {
+        QueryWrapper<EmployeePO> wrapper = new QueryWrapper<>();
+        return employeeWrapper.searchEmployeeWithPage(sum, page, wrapper);
+    }
+
 
     public EmployeePO searchEmployeeById(int id) {
         return employeeWrapper.searchEmployeeById(id);
@@ -39,8 +47,6 @@ public class EmployeeService {
             userPO.setStatus(employeePO.getStatus());
             return userWrapper.updateUserByUsername(userPO, userUpdateWrapper);
         }
-
-
         return employeeWrapper.addEmployee(employeePO);
     }
 
@@ -48,7 +54,7 @@ public class EmployeeService {
         EmployeePO employeePO = new EmployeePO();
         employeePO.setInternalName(username);
         UpdateWrapper<EmployeePO> wrapper = new UpdateCondition<EmployeePO>().updateConditionByEqOne("internal_name", username);
-        return employeeWrapper.deleteEmployee(employeePO,wrapper);
+        return employeeWrapper.deleteEmployee(employeePO, wrapper);
 
     }
 
