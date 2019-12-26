@@ -1,25 +1,57 @@
 package com.manage.sys.entity.PO;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("product")
 public class ProductPO {
+    @TableId(type = IdType.AUTO)
     private Long productId;
+
+    @TableField()
+    private String productNumber;
+
+    @TableField
     private String specifications;
+
+    @TableField
     private String commodityName;
+    @TableField
     private String commodityCode;
+    @TableField
     private String commodityCategory;
+    @TableField
     private String brand;
+    @TableField
     private String unitOfMeasurement;
+    @TableField
     private String color;
+    @TableField
     private String material;
+    @TableField
     private String defaultPurchasePrice;
+    @TableField
     private String defaultSellingPrice;
+    @TableField
     private String description;
+    @TableField
     private Long updaterId;
+    @TableField
     private java.sql.Timestamp updateTime;
+    @TableField
     private int status;
+    @TableField
     private String picture;
+
+    public String getProductNumber() {
+        return productNumber;
+    }
+
+    public void setProductNumber(String productNumber) {
+        this.productNumber = productNumber;
+    }
 
     public Long getProductId() {
         return this.productId;
@@ -153,6 +185,7 @@ public class ProductPO {
     public String toString() {
         return "ProductPO{" +
                 "productId=" + productId +
+                ", productNumber='" + productNumber + '\'' +
                 ", specifications='" + specifications + '\'' +
                 ", commodityName='" + commodityName + '\'' +
                 ", commodityCode='" + commodityCode + '\'' +

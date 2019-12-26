@@ -9,7 +9,7 @@ public class ResultBean<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
+    //未登陆
     public static final int NO_LOGIN = -1;
 
 
@@ -18,12 +18,14 @@ public class ResultBean<T> implements Serializable {
     //因为某种原因检测异常
     public static final int CHECK_FAIL = 1;
 
-
+    //无权限
     public static final int NO_PERMISSION = 2;
 
 
     public static final int UNKNOWN_EXCEPTION = -99;
 
+
+    public static final int ARGUMENT_ERROR = 3;
 
     /**
      * 返回的信息(主要出错的时候使用)
@@ -31,8 +33,7 @@ public class ResultBean<T> implements Serializable {
     private String msg = "success";
 
     /**
-     * 接口返回码, 0表示成功, 其他看对应的定义
-     * 推荐的做法是:
+     * 接口返回码, 0表示成功
      * 0   : 成功
      * >0 : 表示已知的异常(例如提示错误等, 需要调用地方单独处理)
      * <0 : 表示未知的异常(不需要单独处理, 调用方统一处理)

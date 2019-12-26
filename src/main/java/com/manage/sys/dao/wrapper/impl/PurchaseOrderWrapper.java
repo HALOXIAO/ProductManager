@@ -20,6 +20,7 @@ public class PurchaseOrderWrapper implements PurchaseOrderWrapperInterface {
         return purchaseOrderMapper.update(purchaseOrderPO,wrapper)==1;
     }
 
+
     @Override
     public Boolean addPurchaseOrder(PurchaseOrderPO purchaseOrderPO) {
         return null;

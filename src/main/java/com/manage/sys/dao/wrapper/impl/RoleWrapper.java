@@ -34,20 +34,27 @@ public class RoleWrapper implements RoleWrapperInterface {
     }
 
     @Override
-    public Boolean updateRole(RolePO role) {
-        int flag= roleMapper.update(role, null);
+    public Boolean updateRoleBySomeThing(RolePO role,UpdateWrapper<RolePO>wrapper) {
+        int flag= roleMapper.update(role, wrapper);
         return 1 == flag;
     }
 
+
     @Override
-    public Boolean deleteRole(RolePO role) {
+    public Boolean deleteRole(RolePO role,UpdateWrapper<RolePO>wrapperUpdateWrapper) {
         role.setStatus(ROLE_STATUS_CODE_ABUNDANT.ordinal());
-        return updateRole(role);
+        return updateRoleBySomeThing(role,wrapperUpdateWrapper);
+    }
+
+    @Override
+    public Boolean updateRoleById(RolePO rolePO) {
+        return roleMapper.updateById(rolePO)==1;
     }
 
     @Override
     public Boolean deleteRoleBySomeThing(RolePO role, UpdateWrapper<RolePO> updateWrapper) {
-        return null;
+        role.setStatus(ROLE_STATUS_CODE_ABUNDANT.ordinal());
+        return updateRoleBySomeThing(role,updateWrapper);
     }
 
     @Override

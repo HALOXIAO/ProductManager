@@ -37,7 +37,7 @@ public class WarehouseService {
 
     private Boolean updateWarehouseForPurchaseOrder(WarehousePO warehousePO) {
         UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
-        UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateEmployeeBy("warehouse_name", warehousePO.getWarehouseName());
+        UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("warehouse_name", warehousePO.getWarehouseName());
         PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
         purchaseOrderPO.setWarehouseName(warehousePO.getWarehouseName());
         return purchaseOrderWrapper.updatePurchaseOrderBySomeThing(purchaseOrderPO, wrapper);
@@ -45,7 +45,7 @@ public class WarehouseService {
 
     private Boolean updateWarehouseForSales(WarehousePO warehousePO) {
         UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
-        UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("warehouse_name", warehousePO.getWarehouseName());
+        UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("warehouse_name", warehousePO.getWarehouseName());
         SalesPO salesPO = new SalesPO();
         salesPO.setWarehouseName(warehousePO.getWarehouseName());
         return salesWrapper.updateSalesBySomeThing(salesPO, wrapper);

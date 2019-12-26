@@ -1,19 +1,32 @@
 package com.manage.sys.entity.PO;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("purchaseorder")
 public class PurchaseOrderPO {
+    @TableId
     private Long purchaseId;
+    @TableField
     private String purchaseOrder;
+    @TableField
     private Long productId;
+    @TableField
     private String commodityName;
+    @TableField
     private Long supplierId;
+    @TableField
     private String supplierName;
+    @TableField
     private Long warehouseId;
+    @TableField
     private String warehouseName;
+    @TableField
     private Integer quantity;
+    @TableField
     private Integer price;
+    @TableField
     private Integer totalPrice;
     private String description;
     private Long reviewer;

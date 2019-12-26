@@ -1,12 +1,15 @@
 package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.condition.QueryCondition;
+import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
 import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.dao.wrapper.impl.UserWrapper;
 import com.manage.sys.entity.PO.EmployeePO;
+import com.manage.sys.entity.PO.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,32 +19,46 @@ public class EmployeeService {
 
     @Autowired
     EmployeeWrapper employeeWrapper;
+
     @Autowired
     UserWrapper userWrapper;
-    @Autowired
-    SalesWrapper salesWrapper;
-    @Autowired
-    PurchaseOrderWrapper purchaseWrapper;
 
     public EmployeePO searchEmployeeById(int id) {
         return employeeWrapper.searchEmployeeById(id);
     }
 
-    public EmployeePO searchEmployeeByInternalName(String name){
-         QueryWrapper<EmployeePO> wrapper= new QueryCondition<EmployeePO>().queryEmployeeBy("internal_name",name);
+    public EmployeePO searchEmployeeByInternalName(String name) {
+        QueryWrapper<EmployeePO> wrapper = new QueryCondition<EmployeePO>().queryConditionBy("internal_name", name);
         return employeeWrapper.searchEmployeeBySomeThing(wrapper);
     }
 
     public Boolean addEmployee(EmployeePO employeePO) {
+        if (employeePO.getStatus() != null) {
+            UserPO userPO = new UserPO();
+            UpdateWrapper<UserPO> userUpdateWrapper = new UpdateCondition<UserPO>().updateConditionByEqOne("username", employeePO.getInternalName());
+            userPO.setStatus(employeePO.getStatus());
+            return userWrapper.updateUserByUsername(userPO, userUpdateWrapper);
+        }
+
+
         return employeeWrapper.addEmployee(employeePO);
     }
 
+    public Boolean deleteEmployee(String username) {
+        EmployeePO employeePO = new EmployeePO();
+        employeePO.setInternalName(username);
+        UpdateWrapper<EmployeePO> wrapper = new UpdateCondition<EmployeePO>().updateConditionByEqOne("internal_name", username);
+        return employeeWrapper.deleteEmployee(employeePO,wrapper);
+
+    }
 
     public Boolean updateEmployee(EmployeePO employeePO) {
         return employeeWrapper.updateEmployee(employeePO);
     }
 //
 //
+
+
 //    private Boolean updateEmployeeFounderForSales(EmployeePO employeePO) {
 //            UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
 //            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("founder_name", employeePO.getEmployeeName());

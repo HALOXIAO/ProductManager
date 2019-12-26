@@ -1,28 +1,72 @@
 package com.manage.sys.entity.PO;
 
 import com.baomidou.mybatisplus.annotation.*;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.*;
 
 @TableName("employee")
 public class EmployeePO {
     @TableId(value = "employee_id", type = IdType.AUTO)
+    @Null
     private Long employeeId;
+
     @TableId(value = "internal_name")
+    @NotEmpty
+    @Length(min = 2, max = 20, message = "长度需要大于2且小于20")
     private String internalName;
+
     @TableField(value = "employee_name")
+    @NotEmpty
+    @Length(min = 2, max = 20, message = "长度需要大于2且小于20")
     private String employeeName;
+
     @TableField(value = "telephone_number")
+    @NotEmpty
+    @Length(min = 10, max = 18, message = "长度需要大于2且小于20")
+    @Pattern(regexp = "((\\d{11})|^((\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d{1})|(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d{1}))$)", message = "手机号码格式错误")
     private String telephoneNumber;
+
+    @Pattern(regexp = "(^\\d{15}$)|(^\\d{18}$)|(^\\d{17}(\\d|X|x)$)", message = "身份证格式错误")
     private String identityCard;
+
+    @NotNull(message = "性别不能为空")
+    @Range(min = 0, max = 2)
+    @Digits(integer = 1, fraction = 0, message = "状态需符合而规定")
     private Integer sex;
+
+    @NotEmpty
+    @Length(min = 2, max = 2)
     private String nationality;
+
+    @Past
     private java.sql.Date birthDate;
+
+    @Min(3000)
+    @NotNull
     private Integer wage;
+
+
     private String employeeAddress;
+
+    @Email
     private String eMail;
+
+    @NotNull
     private Integer employeeTypeId;
+
+    @NotEmpty
+    @Length(min = 2, max = 20)
     private String employeeTypeName;
-    private java.sql.Timestamp updateTime;
+
+    @Digits(integer = 1, fraction = 0,message = "状态需符合而规定")
+    @Range(min = 0, max = 2, message = "状态需符合规定")
+    @NotNull(message = "需要设定状态")
     private Integer status;
+
+    @Null
+    private java.sql.Timestamp updateTime;
 
     public Long getEmployeeId() {
         return this.employeeId;

@@ -38,14 +38,15 @@ public class ProductService {
         Boolean flag1 = productWrapper.updateProduct(productPO);
         if (!("").equals(productPO.getCommodityName())) {
             UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
-            UpdateWrapper<SalesPO> wrapper = updateCondition.updateEmployeeBy("commodity_name", productPO.getCommodityName());
+            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("commodity_name", productPO.getCommodityName());
             SalesPO sales = new SalesPO();
             sales.setCommodityName(productPO.getCommodityName());
             PurchaseOrderPO purchaseOrder = new PurchaseOrderPO();
             UpdateCondition<PurchaseOrderPO> orderCondition = new UpdateCondition<>();
-            UpdateWrapper<PurchaseOrderPO> updateWrapper = orderCondition.updateEmployeeBy("commodity_name", purchaseOrder.getCommodityName());
+            UpdateWrapper<PurchaseOrderPO> updateWrapper = orderCondition.updateConditionByEqOne("commodity_name", purchaseOrder.getCommodityName());
             Boolean flag2 = purchaseOrderWrapper.updatePurchaseOrderBySomeThing(purchaseOrder, updateWrapper);
-            return flag1 && flag2;
+            Boolean flag3 = salesWrapper.updateSalesBySomeThing(sales, wrapper);
+            return flag1 && flag2 && flag3;
         }
         return flag1;
     }

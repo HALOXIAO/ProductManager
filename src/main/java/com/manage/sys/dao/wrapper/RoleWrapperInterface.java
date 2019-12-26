@@ -2,11 +2,7 @@ package com.manage.sys.dao.wrapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.manage.sys.entity.PO.EmployeePO;
 import com.manage.sys.entity.PO.RolePO;
-import com.manage.sys.entity.PO.UserPO;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -16,7 +12,7 @@ public interface RoleWrapperInterface {
 
     RolePO searchRoleById(int id);
 
-    Boolean updateRole(RolePO role);
+    public Boolean updateRoleBySomeThing(RolePO role, UpdateWrapper<RolePO> wrapper);
 
     public Boolean deleteRoleBySomeThing(RolePO role, UpdateWrapper<RolePO> updateWrapper);
 
@@ -24,5 +20,7 @@ public interface RoleWrapperInterface {
 
     public List<RolePO> getAllRole();
 
-    public Boolean deleteRole(RolePO role);
+    public Boolean deleteRole(RolePO role, UpdateWrapper<RolePO> wrapperUpdateWrapper);
+
+    Boolean updateRoleById(RolePO rolePO);
 }

@@ -1,28 +1,39 @@
 package com.manage.sys.entity.PO;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Null;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @TableName("user")
-public class UserPO {
-
+public class UserPO implements Serializable {
+    @TableId(type = IdType.AUTO)
     private Long userId;
+    @TableField
+    @NotEmpty
+    @Length(min = 2, max = 20)
     private String username;
-    private String telehone;
+
+    @TableField
+    @NotEmpty
+    private String telephone;
+
+    @TableField
+    @NotEmpty
     private String password;
+    @TableField
     private Long employeeId;
+    @TableField
     private int status;
+
     private Timestamp registerTime;
 
-
-    public String getTelehone() {
-        return telehone;
-    }
-
-    public void setTelehone(String telehone) {
-        this.telehone = telehone;
-    }
 
     public Long getUserId() {
         return this.userId;
@@ -74,10 +85,10 @@ public class UserPO {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserPO{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
-                ", telehone='" + telehone + '\'' +
+                ", telephone='" + telephone + '\'' +
                 ", password='" + password + '\'' +
                 ", employeeId=" + employeeId +
                 ", status=" + status +

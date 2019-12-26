@@ -8,7 +8,9 @@ import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.entity.PO.CustomerPO;
 import com.manage.sys.entity.PO.SalesPO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomerService {
     @Autowired
     CustomerWrapper customerWrapper;

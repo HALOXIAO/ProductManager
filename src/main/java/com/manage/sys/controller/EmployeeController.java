@@ -1,13 +1,15 @@
-package com.manage.sys.controller;
+    package com.manage.sys.controller;
 
 
 import com.manage.sys.entity.PO.EmployeePO;
+import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/employee")
@@ -17,24 +19,39 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @PostMapping()
-    public String addEmployee(HttpServletRequest request, @Valid @RequestBody EmployeePO employee) {
-        employeeService.addEmployee(employee);
-        return "";
+    public ResultBean<Boolean> addEmployee(@Valid @RequestBody EmployeePO employee, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            ResultBean<Boolean> resultBean = new ResultBean<>(Boolean.FALSE);
+            resultBean.setCode(ResultBean.ARGUMENT_ERROR);
+            resultBean.setMsg(Objects.requireNonNullElse(bindingResult.getFieldError(), "No ErrorMessage").toString());
+            return resultBean;
+        }
+        return new ResultBean<>(employeeService.addEmployee(employee));
+
     }
 
-    @GetMapping("{employee}")
-    public EmployeePO getEmployee(@PathVariable String username) {
-        return employeeService.searchEmployeeByInternalName(username);
+    @GetMapping("/{employee}")
+    public ResultBean<EmployeePO> getEmployee(@PathVariable("employee") String username) {
+        return new ResultBean<>(employeeService.searchEmployeeByInternalName(username));
     }
 
     @PutMapping()
-    public String updateEmployee() {
-        return "";
+    public ResultBean<Boolean> updateEmployee(@RequestBody EmployeePO employeePO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            ResultBean<Boolean> resultBean = new ResultBean<>(Boolean.FALSE);
+            resultBean.setCode(ResultBean.ARGUMENT_ERROR);
+            resultBean.setMsg(Objects.requireNonNullElse(bindingResult.getFieldError(), "No ErrorMessage").toString());
+            return resultBean;
+        }
+        return new ResultBean<>(employeeService.updateEmployee(employeePO));
     }
 
-    @DeleteMapping()
-    public String deleteEmployee() {
-        return "";
+    @DeleteMapping("{employee}")
+    public ResultBean<Boolean> deleteEmployee(@PathVariable String username) {
+        if (employeeService.deleteEmployee(username)) {
+            return new ResultBean<>(true);
+        }
+        return new ResultBean<>(false);
     }
 
 }

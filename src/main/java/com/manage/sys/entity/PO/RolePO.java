@@ -1,27 +1,42 @@
 package com.manage.sys.entity.PO;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import java.io.Serializable;
 
 @TableName("role")
-public class RolePO {
+public class RolePO implements Serializable {
 
+    @Null(message = "拒绝手动设置id")
     @TableId(type = IdType.AUTO)
     private Integer roleId;
 
 
     @NotEmpty
     @TableId(type = IdType.INPUT)
+    @Length(min = 2, max = 20,message = "长度需要大于1且小于20")
     private String roleName;
+
     @TableField
+    @Length(max = 210,message = "长度需要小于210")
     private String description;
 
     @TableField
+    @Digits(integer = 1, fraction = 0,message = "状态需符合而规定")
+    @Range(min = 0, max = 2, message = "状态需符合规定")
+    @NotNull(message = "需要设定状态")
     private Integer status;
 
+    @Null(message = "拒绝手动设置更新时间")
     @TableField
     private java.sql.Timestamp updateTime;
 
