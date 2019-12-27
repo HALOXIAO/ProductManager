@@ -12,6 +12,15 @@ public class SupplierPO {
     private String description;
     private Long updaterId;
     private java.sql.Timestamp updateTime;
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public Long getSupplierId() {
         return this.supplierId;

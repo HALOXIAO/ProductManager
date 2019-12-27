@@ -10,8 +10,6 @@ public class SalesService {
     @Autowired
     SalesWrapper salesWrapper;
     @Autowired
-    WarehouseService warehouseService;
-    @Autowired
     ProductService productService;
     @Autowired
     CustomerService customerService;

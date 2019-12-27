@@ -1,5 +1,6 @@
 package com.manage.sys.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
@@ -19,6 +20,15 @@ public class SupplierService {
 
     public SupplierPO searchSupplierById(int id) {
         return supplierWrapper.getById(id);
+    }
+
+    public Boolean deleteSupplier(String name){
+
+        return Boolean.TRUE;
+    }
+    public SupplierPO searchSupplierByName(String name) {
+        QueryWrapper<SupplierPO> wrapper = new QueryWrapper<SupplierPO>().eq("supplier_name", name);
+        return supplierWrapper.searchSupplier(wrapper);
     }
 
     public boolean addSupplier(SupplierPO supplierPO) {

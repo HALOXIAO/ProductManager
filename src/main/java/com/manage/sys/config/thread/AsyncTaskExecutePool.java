@@ -33,8 +33,6 @@ public class AsyncTaskExecutePool implements AsyncConfigurer {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         executor.initialize();
         return executor;
-
-
     }
 
     @Override

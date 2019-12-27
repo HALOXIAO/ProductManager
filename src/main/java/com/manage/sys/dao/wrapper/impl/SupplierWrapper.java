@@ -1,5 +1,6 @@
 package com.manage.sys.dao.wrapper.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.wrapper.SupplierMapper;
 import com.manage.sys.dao.wrapper.SupplierWrapperInterface;
@@ -14,6 +15,11 @@ public class SupplierWrapper implements SupplierWrapperInterface {
     SupplierMapper supplierMapper;
 
     @Override
+    public SupplierPO searchSupplier( QueryWrapper<SupplierPO> wrapper){
+        return supplierMapper.selectOne(wrapper);
+    }
+
+    @Override
     public Boolean updateSupplier(SupplierPO supplierPO) {
         return null;
     }
@@ -26,6 +32,12 @@ public class SupplierWrapper implements SupplierWrapperInterface {
     @Override
     public Boolean updateSupplierBySomeThing(SupplierPO supplierPO, UpdateWrapper<SupplierPO> wrapper) {
         return null;
+    }
+
+    @Override
+    public Boolean deleteSupplier(UpdateWrapper<SupplierPO>wrapper){
+        SupplierPO supplierPO = new SupplierPO();
+
     }
 
     @Override
