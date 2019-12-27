@@ -1,12 +1,20 @@
 package com.manage.sys.entity.PO;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
+import javax.validation.constraints.Null;
 
 
 @TableName(value = "sales")
 public class SalesPO {
+    @TableId
+    @Null(message = "拒绝手动设置id")
     private Long salesId;
 
+    @TableField
+    @Null(message = "拒绝手动设置订单号")
     private String salesNumber;
 
     private String orderNumber;

@@ -1,13 +1,10 @@
 package com.manage.sys.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.manage.sys.entity.PO.RolePO;
 import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
