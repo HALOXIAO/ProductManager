@@ -14,4 +14,7 @@ public interface SupplierWrapperInterface {
     SupplierPO searchSupplier(QueryWrapper<SupplierPO> wrapper);
 
     Boolean updateSupplierBySomeThing(SupplierPO supplierPO, UpdateWrapper<SupplierPO> wrapper);
+
+    Boolean deleteSupplier(UpdateWrapper<SupplierPO> wrapper);
+
 }

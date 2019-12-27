@@ -10,6 +10,8 @@ public class RabbitConfig {
 
     @Bean
     public RabbitTemplate rabbitTemplate(CachingConnectionFactory cachingConnectionFactory){
-
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(cachingConnectionFactory);
+        rabbitTemplate.setMandatory(true);
+        return rabbitTemplate;
     }
 }
