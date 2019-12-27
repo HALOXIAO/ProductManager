@@ -22,13 +22,14 @@ public class SalesController {
     SalesService salesService;
 
     @PostMapping("")
-    public ResultBean<Boolean> createSales(@Valid @RequestBody SalesPO sales, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            ResultBean<Boolean>bean = new ResultBean<>(Boolean.FALSE);
-            bean.setMsg(Objects.requireNonNullElse(bindingResult.getFieldError(),"No Error Message").toString());
+    public ResultBean<Boolean> createSales(@Valid @RequestBody SalesPO sales, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            ResultBean<Boolean> bean = new ResultBean<>(Boolean.FALSE);
+            bean.setMsg(Objects.requireNonNullElse(bindingResult.getFieldError(), "No Error Message").toString());
             return bean;
         }
-        salesService.addSales(sales);
+        return new ResultBean<>(salesService.addSales(sales));
+
     }
 
 }
