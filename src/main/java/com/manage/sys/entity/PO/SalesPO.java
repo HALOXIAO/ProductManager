@@ -1,68 +1,55 @@
 package com.manage.sys.entity.PO;
 
+
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-import javax.validation.constraints.Null;
-
-
-@TableName(value = "sales")
+@TableName("sales")
 public class SalesPO {
-    @TableId
-    @Null(message = "拒绝手动设置id")
+    @TableId("sales_id")
     private Long salesId;
 
-    @TableField
-    @Null(message = "拒绝手动设置订单号")
+    @TableField("sales_number")
     private String salesNumber;
 
-    private String orderNumber;
-
+    @TableField("customer_id")
     private Long customerId;
 
+    @TableField("customer_name")
     private String customerName;
 
-    private Long warehouseId;
+    @TableField("total_price")
+    private Double totalPrice;
 
-    private String warehouseName;
+    @TableField("total_quantity")
+    private Integer totalQuantity;
 
-    private Long productId;
-
-    private String commodityName;
-
-    private Integer quantity;
-
-    private Integer price;
-
-    private Integer totalPrice;
-
+    @TableField("description")
     private String description;
 
-    private Long reviewer;
-
-    private Integer reviewState;
-
-    private String reviewStateResult;
-
-    private String reviewerName;
-
-    private java.sql.Timestamp reviewerTime;
-
-    private java.sql.Timestamp storageTime;
-
+    @TableField("founder_id")
     private Long founderId;
 
+    @TableField("founder_name")
     private String founderName;
 
+    @TableField("create_time")
     private java.sql.Timestamp createTime;
 
-    private Long updaterId;
-
+    @TableField("update_time")
     private java.sql.Timestamp updateTime;
 
+    @TableField("status")
     private Integer status;
 
+    public Integer getTotalQuantity() {
+        return totalQuantity;
+    }
+
+    public void setTotalQuantity(Integer totalQuantity) {
+        this.totalQuantity = totalQuantity;
+    }
 
     public Long getSalesId() {
         return this.salesId;
@@ -78,14 +65,6 @@ public class SalesPO {
 
     public void setSalesNumber(String salesNumber) {
         this.salesNumber = salesNumber;
-    }
-
-    public String getOrderNumber() {
-        return this.orderNumber;
-    }
-
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber;
     }
 
     public Long getCustomerId() {
@@ -104,59 +83,11 @@ public class SalesPO {
         this.customerName = customerName;
     }
 
-    public Long getWarehouseId() {
-        return this.warehouseId;
-    }
-
-    public void setWarehouseId(Long warehouseId) {
-        this.warehouseId = warehouseId;
-    }
-
-    public String getWarehouseName() {
-        return this.warehouseName;
-    }
-
-    public void setWarehouseName(String warehouseName) {
-        this.warehouseName = warehouseName;
-    }
-
-    public Long getProductId() {
-        return this.productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getCommodityName() {
-        return this.commodityName;
-    }
-
-    public void setCommodityName(String commodityName) {
-        this.commodityName = commodityName;
-    }
-
-    public Integer getQuantity() {
-        return this.quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Integer getPrice() {
-        return this.price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public Integer getTotalPrice() {
+    public Double getTotalPrice() {
         return this.totalPrice;
     }
 
-    public void setTotalPrice(Integer totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -166,54 +97,6 @@ public class SalesPO {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Long getReviewer() {
-        return this.reviewer;
-    }
-
-    public void setReviewer(Long reviewer) {
-        this.reviewer = reviewer;
-    }
-
-    public Integer getReviewState() {
-        return this.reviewState;
-    }
-
-    public void setReviewState(Integer reviewState) {
-        this.reviewState = reviewState;
-    }
-
-    public String getReviewStateResult() {
-        return this.reviewStateResult;
-    }
-
-    public void setReviewStateResult(String reviewStateResult) {
-        this.reviewStateResult = reviewStateResult;
-    }
-
-    public String getReviewerName() {
-        return this.reviewerName;
-    }
-
-    public void setReviewerName(String reviewerName) {
-        this.reviewerName = reviewerName;
-    }
-
-    public java.sql.Timestamp getReviewerTime() {
-        return this.reviewerTime;
-    }
-
-    public void setReviewerTime(java.sql.Timestamp reviewerTime) {
-        this.reviewerTime = reviewerTime;
-    }
-
-    public java.sql.Timestamp getStorageTime() {
-        return this.storageTime;
-    }
-
-    public void setStorageTime(java.sql.Timestamp storageTime) {
-        this.storageTime = storageTime;
     }
 
     public Long getFounderId() {
@@ -240,14 +123,6 @@ public class SalesPO {
         this.createTime = createTime;
     }
 
-    public Long getUpdaterId() {
-        return this.updaterId;
-    }
-
-    public void setUpdaterId(Long updaterId) {
-        this.updaterId = updaterId;
-    }
-
     public java.sql.Timestamp getUpdateTime() {
         return this.updateTime;
     }
@@ -262,5 +137,23 @@ public class SalesPO {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "SalesPO{" +
+                "salesId=" + salesId +
+                ", salesNumber='" + salesNumber + '\'' +
+                ", customerId=" + customerId +
+                ", customerName='" + customerName + '\'' +
+                ", totalPrice=" + totalPrice +
+                ", totalQuantity=" + totalQuantity +
+                ", description='" + description + '\'' +
+                ", founderId=" + founderId +
+                ", founderName='" + founderName + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", status=" + status +
+                '}';
     }
 }

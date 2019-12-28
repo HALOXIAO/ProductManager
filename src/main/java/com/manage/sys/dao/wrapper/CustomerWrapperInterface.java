@@ -1,8 +1,6 @@
 package com.manage.sys.dao.wrapper;
 
 import com.manage.sys.entity.PO.CustomerPO;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Service;
 
 /**
  * Customer表的基本操作

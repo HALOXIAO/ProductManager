@@ -1,57 +1,57 @@
 package com.manage.sys.entity.PO;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName("product")
+
+@TableName( "product")
 public class ProductPO {
-    @TableId(type = IdType.AUTO)
+    @TableId( "product_id")
     private Long productId;
 
-    @TableField()
+    @TableField( "product_number")
     private String productNumber;
 
-    @TableField
+    @TableField( "product_name")
+    private String productName;
+
+    @TableField( "single_price")
+    private Double singlePrice;
+
+    @TableField( "specifications")
     private String specifications;
 
-    @TableField
-    private String commodityName;
-    @TableField
-    private String commodityCode;
-    @TableField
-    private String commodityCategory;
-    @TableField
+    @TableField( "product_category")
+    private String productCategory;
+
+    @TableField( "brand")
     private String brand;
-    @TableField
+
+    @TableField( "unit_of_measurement")
     private String unitOfMeasurement;
-    @TableField
+
+    @TableField( "color")
     private String color;
-    @TableField
+
+    @TableField( "material")
     private String material;
-    @TableField
-    private String defaultPurchasePrice;
-    @TableField
-    private String defaultSellingPrice;
-    @TableField
+
+    @TableField( "description")
     private String description;
-    @TableField
+
+    @TableField( "updater_id")
     private Long updaterId;
-    @TableField
+
+    @TableField( "update_time")
     private java.sql.Timestamp updateTime;
-    @TableField
-    private int status;
-    @TableField
+
+    @TableField( "status")
+    private Integer status;
+
+    @TableField( "picture")
     private String picture;
 
-    public String getProductNumber() {
-        return productNumber;
-    }
-
-    public void setProductNumber(String productNumber) {
-        this.productNumber = productNumber;
-    }
 
     public Long getProductId() {
         return this.productId;
@@ -59,6 +59,30 @@ public class ProductPO {
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public String getProductNumber() {
+        return this.productNumber;
+    }
+
+    public void setProductNumber(String productNumber) {
+        this.productNumber = productNumber;
+    }
+
+    public String getProductName() {
+        return this.productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Double getSinglePrice() {
+        return this.singlePrice;
+    }
+
+    public void setSinglePrice(Double singlePrice) {
+        this.singlePrice = singlePrice;
     }
 
     public String getSpecifications() {
@@ -69,28 +93,12 @@ public class ProductPO {
         this.specifications = specifications;
     }
 
-    public String getCommodityName() {
-        return this.commodityName;
+    public String getProductCategory() {
+        return this.productCategory;
     }
 
-    public void setCommodityName(String commodityName) {
-        this.commodityName = commodityName;
-    }
-
-    public String getCommodityCode() {
-        return this.commodityCode;
-    }
-
-    public void setCommodityCode(String commodityCode) {
-        this.commodityCode = commodityCode;
-    }
-
-    public String getCommodityCategory() {
-        return this.commodityCategory;
-    }
-
-    public void setCommodityCategory(String commodityCategory) {
-        this.commodityCategory = commodityCategory;
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 
     public String getBrand() {
@@ -125,22 +133,6 @@ public class ProductPO {
         this.material = material;
     }
 
-    public String getDefaultPurchasePrice() {
-        return this.defaultPurchasePrice;
-    }
-
-    public void setDefaultPurchasePrice(String defaultPurchasePrice) {
-        this.defaultPurchasePrice = defaultPurchasePrice;
-    }
-
-    public String getDefaultSellingPrice() {
-        return this.defaultSellingPrice;
-    }
-
-    public void setDefaultSellingPrice(String defaultSellingPrice) {
-        this.defaultSellingPrice = defaultSellingPrice;
-    }
-
     public String getDescription() {
         return this.description;
     }
@@ -165,11 +157,11 @@ public class ProductPO {
         this.updateTime = updateTime;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -183,19 +175,17 @@ public class ProductPO {
 
     @Override
     public String toString() {
-        return "ProductPO{" +
+        return "Product{" +
                 "productId=" + productId +
                 ", productNumber='" + productNumber + '\'' +
+                ", productName='" + productName + '\'' +
+                ", singlePrice=" + singlePrice +
                 ", specifications='" + specifications + '\'' +
-                ", commodityName='" + commodityName + '\'' +
-                ", commodityCode='" + commodityCode + '\'' +
-                ", commodityCategory='" + commodityCategory + '\'' +
+                ", productCategory='" + productCategory + '\'' +
                 ", brand='" + brand + '\'' +
                 ", unitOfMeasurement='" + unitOfMeasurement + '\'' +
                 ", color='" + color + '\'' +
                 ", material='" + material + '\'' +
-                ", defaultPurchasePrice='" + defaultPurchasePrice + '\'' +
-                ", defaultSellingPrice='" + defaultSellingPrice + '\'' +
                 ", description='" + description + '\'' +
                 ", updaterId=" + updaterId +
                 ", updateTime=" + updateTime +

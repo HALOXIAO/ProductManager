@@ -1,18 +1,38 @@
 package com.manage.sys.entity.PO;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 
 @TableName("warehouse")
 public class WarehousePO {
+    @TableField("warehouse_id")
     private Long warehouseId;
+
+    @TableField("warehouse_name")
     private String warehouseName;
+
+    @TableField("warehouse_code")
     private String warehouseCode;
+
+    @TableField("warehouse_address")
     private String warehouseAddress;
+
+    @TableField("description")
     private String description;
+
+    @TableField("administrator_id")
     private Long administratorId;
+
+    @TableField("updater_id")
     private Long updaterId;
+
+    @TableField("update_time")
     private java.sql.Timestamp updateTime;
-    private int status;
+
+    @TableField("status")
+    private Integer status;
+
 
     public Long getWarehouseId() {
         return this.warehouseId;
@@ -78,26 +98,13 @@ public class WarehousePO {
         this.updateTime = updateTime;
     }
 
-    public int getStatus() {
+    public Integer
+
+    getStatus() {
         return this.status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "WarehousePO{" +
-                "warehouseId=" + warehouseId +
-                ", warehouseName='" + warehouseName + '\'' +
-                ", warehouseCode='" + warehouseCode + '\'' +
-                ", warehouseAddress='" + warehouseAddress + '\'' +
-                ", description='" + description + '\'' +
-                ", administratorId=" + administratorId +
-                ", updaterId=" + updaterId +
-                ", updateTime=" + updateTime +
-                ", status=" + status +
-                '}';
     }
 }

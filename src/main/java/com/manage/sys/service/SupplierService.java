@@ -3,8 +3,6 @@ package com.manage.sys.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.condition.UpdateCondition;
-import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
-import com.manage.sys.dao.wrapper.impl.ProductWrapper;
 import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.dao.wrapper.impl.SupplierWrapper;
 import com.manage.sys.entity.PO.PurchaseOrderPO;

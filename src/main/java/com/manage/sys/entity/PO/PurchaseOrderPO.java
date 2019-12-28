@@ -1,47 +1,69 @@
 package com.manage.sys.entity.PO;
 
+
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName("purchaseorder")
+@TableName( "purchase_order")
 public class PurchaseOrderPO {
-    @TableId
+    @TableId( "purchase_id")
     private Long purchaseId;
-    @TableField
-    private String purchaseOrder;
-    @TableField
-    private Long productId;
-    @TableField
-    private String commodityName;
-    @TableField
+
+    @TableField( "purchase_order_number")
+    private String purchaseOrderNumber;
+
+    @TableField( "supplier_id")
     private Long supplierId;
-    @TableField
+
+    @TableField( "supplier_name")
     private String supplierName;
-    @TableField
-    private Long warehouseId;
-    @TableField
-    private String warehouseName;
-    @TableField
-    private Integer quantity;
-    @TableField
-    private Integer price;
-    @TableField
-    private Integer totalPrice;
+
+    @TableField( "order_type")
+    private Integer orderType;
+
+    @TableField( "total_price")
+    private Double totalPrice;
+
+    @TableField( "total_quantity")
+    private Integer totalQuantity;
+
+    @TableField( "description")
     private String description;
+
+    @TableField( "reviewer")
     private Long reviewer;
-    private int reviewState;
+
+    @TableField( "review_state")
+    private Integer reviewState;
+
+    @TableField( "review_name")
     private String reviewName;
+
+    @TableField( "review_result")
     private String reviewResult;
+
+    @TableField( "review_time")
     private java.sql.Timestamp reviewTime;
-    private java.sql.Timestamp storageTime;
+
+    @TableField( "founder_id")
     private Long founderId;
+
+    @TableField( "founder_name")
     private String founderName;
+
+    @TableField( "create_time")
     private java.sql.Timestamp createTime;
+
+    @TableField( "updater_id")
     private Long updaterId;
+
+    @TableField( "update_time")
     private java.sql.Timestamp updateTime;
-    private int status;
-    private int orderType;
+
+    @TableField( "status")
+    private Integer status;
+
 
     public Long getPurchaseId() {
         return this.purchaseId;
@@ -51,28 +73,12 @@ public class PurchaseOrderPO {
         this.purchaseId = purchaseId;
     }
 
-    public String getPurchaseOrder() {
-        return this.purchaseOrder;
+    public String getPurchaseOrderNumber() {
+        return this.purchaseOrderNumber;
     }
 
-    public void setPurchaseOrder(String purchaseOrder) {
-        this.purchaseOrder = purchaseOrder;
-    }
-
-    public Long getProductId() {
-        return this.productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getCommodityName() {
-        return this.commodityName;
-    }
-
-    public void setCommodityName(String commodityName) {
-        this.commodityName = commodityName;
+    public void setPurchaseOrderNumber(String purchaseOrderNumber) {
+        this.purchaseOrderNumber = purchaseOrderNumber;
     }
 
     public Long getSupplierId() {
@@ -91,44 +97,28 @@ public class PurchaseOrderPO {
         this.supplierName = supplierName;
     }
 
-    public Long getWarehouseId() {
-        return this.warehouseId;
+    public Integer getOrderType() {
+        return this.orderType;
     }
 
-    public void setWarehouseId(Long warehouseId) {
-        this.warehouseId = warehouseId;
+    public void setOrderType(Integer orderType) {
+        this.orderType = orderType;
     }
 
-    public String getWarehouseName() {
-        return this.warehouseName;
-    }
-
-    public void setWarehouseName(String warehouseName) {
-        this.warehouseName = warehouseName;
-    }
-
-    public Integer getQuantity() {
-        return this.quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Integer getPrice() {
-        return this.price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public Integer getTotalPrice() {
+    public Double getTotalPrice() {
         return this.totalPrice;
     }
 
-    public void setTotalPrice(Integer totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public Integer getTotalQuantity() {
+        return this.totalQuantity;
+    }
+
+    public void setTotalQuantity(Integer totalQuantity) {
+        this.totalQuantity = totalQuantity;
     }
 
     public String getDescription() {
@@ -147,11 +137,11 @@ public class PurchaseOrderPO {
         this.reviewer = reviewer;
     }
 
-    public int getReviewState() {
+    public Integer getReviewState() {
         return this.reviewState;
     }
 
-    public void setReviewState(int reviewState) {
+    public void setReviewState(Integer reviewState) {
         this.reviewState = reviewState;
     }
 
@@ -177,14 +167,6 @@ public class PurchaseOrderPO {
 
     public void setReviewTime(java.sql.Timestamp reviewTime) {
         this.reviewTime = reviewTime;
-    }
-
-    public java.sql.Timestamp getStorageTime() {
-        return this.storageTime;
-    }
-
-    public void setStorageTime(java.sql.Timestamp storageTime) {
-        this.storageTime = storageTime;
     }
 
     public Long getFounderId() {
@@ -227,50 +209,36 @@ public class PurchaseOrderPO {
         this.updateTime = updateTime;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public int getOrderType() {
-        return this.orderType;
-    }
-
-    public void setOrderType(int orderType) {
-        this.orderType = orderType;
     }
 
     @Override
     public String toString() {
-        return "PurchaseorderPO{" +
+        return "PurchaseOrder{" +
                 "purchaseId=" + purchaseId +
-                ", purchaseOrder='" + purchaseOrder + '\'' +
-                ", productId=" + productId +
-                ", commodityName='" + commodityName + '\'' +
+                ", purchaseOrderNumber='" + purchaseOrderNumber + '\'' +
                 ", supplierId=" + supplierId +
                 ", supplierName='" + supplierName + '\'' +
-                ", warehouseId=" + warehouseId +
-                ", warehouseName='" + warehouseName + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
+                ", orderType=" + orderType +
                 ", totalPrice=" + totalPrice +
+                ", totalQuantity=" + totalQuantity +
                 ", description='" + description + '\'' +
                 ", reviewer=" + reviewer +
                 ", reviewState=" + reviewState +
                 ", reviewName='" + reviewName + '\'' +
                 ", reviewResult='" + reviewResult + '\'' +
                 ", reviewTime=" + reviewTime +
-                ", storageTime=" + storageTime +
                 ", founderId=" + founderId +
                 ", founderName='" + founderName + '\'' +
                 ", createTime=" + createTime +
                 ", updaterId=" + updaterId +
                 ", updateTime=" + updateTime +
                 ", status=" + status +
-                ", orderType=" + orderType +
                 '}';
     }
 }

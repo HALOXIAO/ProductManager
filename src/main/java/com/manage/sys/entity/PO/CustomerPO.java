@@ -1,27 +1,38 @@
 package com.manage.sys.entity.PO;
 
-
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName("customer")
+
+@TableName( "customer")
 public class CustomerPO {
+    @TableId( "customer_id")
     private Long customerId;
 
+    @TableField( "customer_name")
     private String customerName;
 
+    @TableField( "contact")
     private String contact;
 
+    @TableField( "contact_telephone_number")
     private String contactTelephoneNumber;
 
+    @TableField( "contact_address")
     private String contactAddress;
 
+    @TableField( "description")
     private String description;
 
+    @TableField( "updater_id")
     private Long updaterId;
 
+    @TableField( "update_time")
     private java.sql.Timestamp updateTime;
 
-    private int status;
+    @TableField( "status")
+    private Integer status;
 
 
     public Long getCustomerId() {
@@ -88,26 +99,11 @@ public class CustomerPO {
         this.updateTime = updateTime;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "CustomerPO{" +
-                "customerId=" + customerId +
-                ", customerName='" + customerName + '\'' +
-                ", contact='" + contact + '\'' +
-                ", contactTelephoneNumber='" + contactTelephoneNumber + '\'' +
-                ", contactAddress='" + contactAddress + '\'' +
-                ", description='" + description + '\'' +
-                ", updaterId=" + updaterId +
-                ", updateTime=" + updateTime +
-                ", status=" + status +
-                '}';
     }
 }

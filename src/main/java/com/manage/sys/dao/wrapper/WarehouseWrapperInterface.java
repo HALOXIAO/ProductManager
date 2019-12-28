@@ -1,8 +1,6 @@
 package com.manage.sys.dao.wrapper;
 
 import com.manage.sys.entity.PO.WarehousePO;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Service;
 
 public   interface WarehouseWrapperInterface {
 
