@@ -25,8 +25,9 @@ public class SupplierService {
     }
 
     public Boolean deleteSupplier(String name){
-
-        return Boolean.TRUE;
+        UpdateWrapper<SupplierPO>wrapper = new UpdateWrapper<>();
+        wrapper.eq("supplier_name",name);
+        return supplierWrapper.deleteSupplier(wrapper);
     }
     public SupplierPO searchSupplierByName(String name) {
         QueryWrapper<SupplierPO> wrapper = new QueryWrapper<SupplierPO>().eq("supplier_name", name);

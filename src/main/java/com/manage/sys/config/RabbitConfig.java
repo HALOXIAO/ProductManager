@@ -11,6 +11,8 @@ public class RabbitConfig {
     private static final String SalesTopicQueue="";
     @Bean
     public RabbitTemplate rabbitTemplate(CachingConnectionFactory cachingConnectionFactory){
-
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(cachingConnectionFactory);
+        rabbitTemplate.setMandatory(true);
+        return rabbitTemplate;
     }
 }

@@ -1,6 +1,6 @@
 package com.manage.sys.config.status;
 
-public enum RESULTBEAN_CODE {
+public enum RESULT_BEAN_CODE {
     NO_LOGIN(-1),
     SUCCESS(0),
     CHECK_FAIL(1),
@@ -9,7 +9,7 @@ public enum RESULTBEAN_CODE {
     UNKNOWN_EXCEPTION(-99);
     final int value;
 
-    RESULTBEAN_CODE(final int value) {
+    RESULT_BEAN_CODE(final int value) {
         this.value = value;
     }
 

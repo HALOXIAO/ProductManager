@@ -2,6 +2,7 @@ package com.manage.sys.dao.wrapper.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.manage.sys.config.status.SUPPLIER_STATUS_CODE;
 import com.manage.sys.dao.wrapper.SupplierMapper;
 import com.manage.sys.dao.wrapper.SupplierWrapperInterface;
 import com.manage.sys.entity.PO.SupplierPO;
@@ -37,7 +38,8 @@ public class SupplierWrapper implements SupplierWrapperInterface {
     @Override
     public Boolean deleteSupplier(UpdateWrapper<SupplierPO>wrapper){
         SupplierPO supplierPO = new SupplierPO();
-
+        supplierPO.setStatus(SUPPLIER_STATUS_CODE.SUPPLIER_STATUS_CODE_FORMERSUPPLIER.getValue());
+        return updateSupplierBySomeThing(supplierPO,wrapper);
     }
 
     @Override
