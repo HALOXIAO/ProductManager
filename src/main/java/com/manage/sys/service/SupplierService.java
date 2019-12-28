@@ -10,7 +10,9 @@ import com.manage.sys.dao.wrapper.impl.SupplierWrapper;
 import com.manage.sys.entity.PO.PurchaseOrderPO;
 import com.manage.sys.entity.PO.SupplierPO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SupplierService {
     @Autowired
     SupplierWrapper supplierWrapper;

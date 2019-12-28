@@ -42,7 +42,7 @@ public class SupplierController {
     @DeleteMapping()
     @CacheEvict("supplier")
     public ResultBean<Boolean> deleteSupplier(@RequestParam String supplierName){
-        supplierService
+        return new ResultBean<>(Boolean.TRUE);
     }
 
 
