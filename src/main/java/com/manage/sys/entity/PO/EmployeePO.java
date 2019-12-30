@@ -53,14 +53,8 @@ public class EmployeePO {
     @Email
     private String eMail;
 
-    @NotNull
-    private Integer employeeTypeId;
 
-    @NotEmpty
-    @Length(min = 2, max = 20)
-    private String employeeTypeName;
-
-    @Digits(integer = 1, fraction = 0,message = "状态需符合而规定")
+    @Digits(integer = 1, fraction = 0, message = "状态需符合而规定")
     @Range(min = 0, max = 2, message = "状态需符合规定")
     @NotNull(message = "需要设定状态")
     private Integer status;
@@ -156,22 +150,6 @@ public class EmployeePO {
         this.eMail = eMail;
     }
 
-    public Integer getEmployeeTypeId() {
-        return this.employeeTypeId;
-    }
-
-    public void setEmployeeTypeId(Integer employeeTypeId) {
-        this.employeeTypeId = employeeTypeId;
-    }
-
-    public String getEmployeeTypeName() {
-        return this.employeeTypeName;
-    }
-
-    public void setEmployeeTypeName(String employeeTypeName) {
-        this.employeeTypeName = employeeTypeName;
-    }
-
 
     public java.sql.Timestamp getUpdateTime() {
         return this.updateTime;
@@ -203,10 +181,8 @@ public class EmployeePO {
                 ", wage=" + wage +
                 ", employeeAddress='" + employeeAddress + '\'' +
                 ", eMail='" + eMail + '\'' +
-                ", employeeTypeId=" + employeeTypeId +
-                ", employeeTypeName='" + employeeTypeName + '\'' +
-                ", updateTime=" + updateTime +
                 ", status=" + status +
+                ", updateTime=" + updateTime +
                 '}';
     }
 }

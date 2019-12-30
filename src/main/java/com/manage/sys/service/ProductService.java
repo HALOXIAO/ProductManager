@@ -25,20 +25,27 @@ public class ProductService {
         return productWrapper.searchProductById(id);
     }
 
+
+
     public Boolean addProduct(ProductPO productPO) {
+
         return productWrapper.addProduct(productPO);
     }
 
     @Transactional(propagation = Propagation.NESTED)
-    public Boolean updateProduct(ProductPO productPO)throws Exception {
+    public Boolean updateProduct(ProductPO productPO) throws Exception {
         Boolean orderProductFlag = Boolean.TRUE;
+        Boolean productFlag = productWrapper.updateProduct(productPO);
         if (!("").equals(productPO.getProductName())) {
             OrderProductPO orderProduct = new OrderProductPO();
             orderProduct.setProductName(productPO.getProductName());
             UpdateWrapper<OrderProductPO> wrapper = new UpdateWrapper<OrderProductPO>().eq("product_name", orderProduct.getProductName());
             orderProductFlag = orderProductWrapper.updateOrderProduct(orderProduct, wrapper);
+            return orderProductFlag && productFlag;
         }
-        return Boolean.FALSE;
+        return productFlag;
     }
+
+
 
 }

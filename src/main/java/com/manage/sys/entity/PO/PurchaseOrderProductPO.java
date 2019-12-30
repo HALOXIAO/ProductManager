@@ -8,8 +8,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName( "purchase_order_product")
 public class PurchaseOrderProductPO {
-    @TableId( "purchase_order_id")
-    private Long purchaseOrderId;
+
+    @TableId( "id")
+    private Long id;
 
     @TableField( "purchase_order_number")
     private String purchaseOrderNumber;
@@ -38,11 +39,11 @@ public class PurchaseOrderProductPO {
     }
 
     public Long getPurchaseOrderId() {
-        return this.purchaseOrderId;
+        return this.id;
     }
 
-    public void setPurchaseOrderId(Long purchaseOrderId) {
-        this.purchaseOrderId = purchaseOrderId;
+    public void setPurchaseOrderId(Long id) {
+        this.id = id;
     }
 
     public String getPurchaseOrderNumber() {
@@ -88,7 +89,7 @@ public class PurchaseOrderProductPO {
     @Override
     public String toString() {
         return "PurchaseOrderProductPO{" +
-                "purchaseOrderId=" + purchaseOrderId +
+                "id=" + id +
                 ", purchaseOrderNumber='" + purchaseOrderNumber + '\'' +
                 ", purchaseProductId=" + purchaseProductId +
                 ", purchaseProductNumber='" + purchaseProductNumber + '\'' +

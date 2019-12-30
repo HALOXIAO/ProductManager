@@ -25,8 +25,6 @@ public class CustomerPO {
     @TableField( "description")
     private String description;
 
-    @TableField( "updater_id")
-    private Long updaterId;
 
     @TableField( "update_time")
     private java.sql.Timestamp updateTime;
@@ -83,13 +81,7 @@ public class CustomerPO {
         this.description = description;
     }
 
-    public Long getUpdaterId() {
-        return this.updaterId;
-    }
 
-    public void setUpdaterId(Long updaterId) {
-        this.updaterId = updaterId;
-    }
 
     public java.sql.Timestamp getUpdateTime() {
         return this.updateTime;
@@ -105,5 +97,19 @@ public class CustomerPO {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerPO{" +
+                "customerId=" + customerId +
+                ", customerName='" + customerName + '\'' +
+                ", contact='" + contact + '\'' +
+                ", contactTelephoneNumber='" + contactTelephoneNumber + '\'' +
+                ", contactAddress='" + contactAddress + '\'' +
+                ", description='" + description + '\'' +
+                ", updateTime=" + updateTime +
+                ", status=" + status +
+                '}';
     }
 }

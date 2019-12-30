@@ -7,8 +7,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("order_product")
 public class OrderProductPO {
-    @TableId("order_id")
-    private Long orderId;
+    @TableId("id")
+    private Long id;
 
     @TableField("order_number")
     private String orderNumber;
@@ -34,11 +34,11 @@ public class OrderProductPO {
     }
 
     public Long getOrderId() {
-        return this.orderId;
+        return this.id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrderId(Long id) {
+        this.id = id;
     }
 
     public String getOrderNumber() {
@@ -77,7 +77,7 @@ public class OrderProductPO {
     @Override
     public String toString() {
         return "OrderProductPO{" +
-                "orderId=" + orderId +
+                "id=" + id +
                 ", orderNumber='" + orderNumber + '\'' +
                 ", productId=" + productId +
                 ", productName='" + productName + '\'' +
