@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.ProductMapper;
 import com.manage.sys.dao.wrapper.ProductWrapperInterface;
-import com.manage.sys.entity.PO.ProductPO;
+import com.manage.sys.entity.po.ProductPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,9 @@
 package com.manage.sys.controller;
 
 
-import com.manage.sys.entity.PO.EmployeePO;
+import com.manage.sys.entity.front.EmployeeFront;
+import com.manage.sys.entity.po.EmployeePO;
+import com.manage.sys.entity.convert.EmployeeFrontConvertToPo;
 import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,8 @@ public class EmployeeController {
 
 
     /**
-    * 当需求5w条数据以上的时候，需要对分页查询方法进行优化
-    * */
+     * 当需求5w条数据以上的时候，需要对分页查询方法进行优化
+     */
     @GetMapping("/all")
     @Cacheable("employee")
     public ResultBean<List<EmployeePO>> getAllEmployee(@RequestParam("size") Long sum, @RequestParam("page") Long page) {
@@ -32,14 +34,15 @@ public class EmployeeController {
     }
 
     @PostMapping()
-    public ResultBean<Boolean> addEmployee(@Valid @RequestBody EmployeePO employee, BindingResult bindingResult) {
+    public ResultBean<Boolean> addEmployee(@Valid @RequestBody EmployeeFront employee, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             ResultBean<Boolean> resultBean = new ResultBean<>(Boolean.FALSE);
             resultBean.setCode(ResultBean.ARGUMENT_ERROR);
             resultBean.setMsg(Objects.requireNonNullElse(bindingResult.getFieldError(), "No ErrorMessage").toString());
             return resultBean;
         }
-        return new ResultBean<>(employeeService.addEmployee(employee));
+        EmployeePO employeePO = EmployeeFrontConvertToPo.INSTACE.employeeFrontToEmployeePo(employee);
+        return new ResultBean<>(employeeService.addEmployee(employeePO, employee.getStatus()));
 
     }
 

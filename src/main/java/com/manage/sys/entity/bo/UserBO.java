@@ -1,4 +1,4 @@
-package com.manage.sys.entity.BO;
+package com.manage.sys.entity.bo;
 
 public class UserBO {
     private Long userId;

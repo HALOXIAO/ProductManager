@@ -1,7 +1,7 @@
 package com.manage.sys.service;
 
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
-import com.manage.sys.entity.PO.*;
+import com.manage.sys.entity.po.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

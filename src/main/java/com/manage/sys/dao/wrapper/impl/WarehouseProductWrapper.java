@@ -3,7 +3,7 @@ package com.manage.sys.dao.wrapper.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.wrapper.WarehouseProductWrapperInterface;
-import com.manage.sys.entity.PO.WarehouseProductPO;
+import com.manage.sys.entity.po.WarehouseProductPO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

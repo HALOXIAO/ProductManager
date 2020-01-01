@@ -1,8 +1,8 @@
 package com.manage.sys.Auth;
 
 import com.manage.sys.config.status.ROLE_STATUS_CODE;
-import com.manage.sys.entity.PO.EmployeePO;
-import com.manage.sys.entity.PO.UserPO;
+import com.manage.sys.entity.po.EmployeePO;
+import com.manage.sys.entity.po.UserPO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

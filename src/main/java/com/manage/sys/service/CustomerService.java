@@ -1,11 +1,10 @@
 package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.CustomerWrapper;
 import com.manage.sys.dao.wrapper.impl.SalesWrapper;
-import com.manage.sys.entity.PO.CustomerPO;
-import com.manage.sys.entity.PO.SalesPO;
+import com.manage.sys.entity.po.CustomerPO;
+import com.manage.sys.entity.po.SalesPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +27,7 @@ public class CustomerService {
     public Boolean updateCustomer(CustomerPO customerPO) {
         Boolean flag1 = customerWrapper.updateCustomer(customerPO);
         if (!("".equals(customerPO.getCustomerName()))) {
-            UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
-            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("customer_name", customerPO.getCustomerName());
+            UpdateWrapper<SalesPO> wrapper = new UpdateWrapper<SalesPO>().eq("customer_name", customerPO.getCustomerName());
             SalesPO sales = new SalesPO();
             sales.setCustomerName(customerPO.getCustomerName());
             return salesWrapper.updateSalesBySomeThing(sales, wrapper) && flag1;

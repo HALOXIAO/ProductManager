@@ -1,52 +1,41 @@
-package com.manage.sys.entity.PO;
+package com.manage.sys.entity.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-
-@TableName( "customer")
-public class CustomerPO {
-    @TableId( "customer_id")
-    private Long customerId;
-
-    @TableField( "customer_name")
-    private String customerName;
-
-    @TableField( "contact")
+@TableName("supplier")
+public class SupplierPO {
+    private Long supplierId;
+    private String supplierName;
     private String contact;
-
-    @TableField( "contact_telephone_number")
     private String contactTelephoneNumber;
-
-    @TableField( "contact_address")
     private String contactAddress;
-
-    @TableField( "description")
     private String description;
-
-
-    @TableField( "update_time")
+    private Long updaterId;
     private java.sql.Timestamp updateTime;
-
-    @TableField( "status")
     private Integer status;
 
-
-    public Long getCustomerId() {
-        return this.customerId;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public String getCustomerName() {
-        return this.customerName;
+    public Long getSupplierId() {
+        return this.supplierId;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public String getSupplierName() {
+        return this.supplierName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
     }
 
     public String getContact() {
@@ -81,7 +70,13 @@ public class CustomerPO {
         this.description = description;
     }
 
+    public Long getUpdaterId() {
+        return this.updaterId;
+    }
 
+    public void setUpdaterId(Long updaterId) {
+        this.updaterId = updaterId;
+    }
 
     public java.sql.Timestamp getUpdateTime() {
         return this.updateTime;
@@ -91,25 +86,18 @@ public class CustomerPO {
         this.updateTime = updateTime;
     }
 
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {
-        return "CustomerPO{" +
-                "customerId=" + customerId +
-                ", customerName='" + customerName + '\'' +
+        return "SupplierPO{" +
+                "supplierId=" + supplierId +
+                ", supplierName='" + supplierName + '\'' +
                 ", contact='" + contact + '\'' +
                 ", contactTelephoneNumber='" + contactTelephoneNumber + '\'' +
                 ", contactAddress='" + contactAddress + '\'' +
                 ", description='" + description + '\'' +
+                ", updaterId=" + updaterId +
                 ", updateTime=" + updateTime +
-                ", status=" + status +
                 '}';
     }
 }

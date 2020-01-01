@@ -1,6 +1,6 @@
 package com.manage.sys.dao.wrapper;
 
-import com.manage.sys.entity.PO.WarehousePO;
+import com.manage.sys.entity.po.WarehousePO;
 
 public   interface WarehouseWrapperInterface {
 

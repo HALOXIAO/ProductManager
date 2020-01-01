@@ -1,7 +1,7 @@
 package com.manage.sys.dao.wrapper;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.manage.sys.entity.PO.SalesPO;
+import com.manage.sys.entity.po.SalesPO;
 
 public interface SalesWrapperInterface {
      Boolean createSales(SalesPO sales);

@@ -5,11 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.manage.sys.dao.EmployeeMapper;
-import com.manage.sys.entity.PO.EmployeePO;
-import lombok.var;
+import com.manage.sys.entity.po.EmployeePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

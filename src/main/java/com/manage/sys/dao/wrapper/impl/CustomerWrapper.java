@@ -2,7 +2,7 @@ package com.manage.sys.dao.wrapper.impl;
 
 import com.manage.sys.dao.CustomerMapper;
 import com.manage.sys.dao.wrapper.CustomerWrapperInterface;
-import com.manage.sys.entity.PO.CustomerPO;
+import com.manage.sys.entity.po.CustomerPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

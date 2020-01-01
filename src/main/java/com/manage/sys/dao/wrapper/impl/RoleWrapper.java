@@ -4,16 +4,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.RoleMapper;
 import com.manage.sys.dao.wrapper.RoleWrapperInterface;
-import com.manage.sys.entity.PO.EmployeePO;
-import com.manage.sys.entity.PO.RolePO;
-import com.manage.sys.entity.PO.UserPO;
+import com.manage.sys.entity.po.RolePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.manage.sys.config.status.EMPLOYEE_STATUS_CODE.EMPLOYEE_STATUS_CODE_QUIT;
 import static com.manage.sys.config.status.ROLE_STATUS_CODE.ROLE_STATUS_CODE_ABUNDANT;
 
 @Component

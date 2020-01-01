@@ -2,7 +2,7 @@ package com.manage.sys.dao.wrapper.impl;
 
 import com.manage.sys.dao.WarehouseMapper;
 import com.manage.sys.dao.wrapper.WarehouseWrapperInterface;
-import com.manage.sys.entity.PO.WarehousePO;
+import com.manage.sys.entity.po.WarehousePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

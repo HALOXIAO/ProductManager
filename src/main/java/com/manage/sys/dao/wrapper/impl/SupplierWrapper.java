@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.config.status.SUPPLIER_STATUS_CODE;
 import com.manage.sys.dao.wrapper.SupplierMapper;
 import com.manage.sys.dao.wrapper.SupplierWrapperInterface;
-import com.manage.sys.entity.PO.SupplierPO;
+import com.manage.sys.entity.po.SupplierPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

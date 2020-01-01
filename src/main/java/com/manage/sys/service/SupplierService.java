@@ -2,11 +2,10 @@ package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
 import com.manage.sys.dao.wrapper.impl.SupplierWrapper;
-import com.manage.sys.entity.PO.PurchaseOrderPO;
-import com.manage.sys.entity.PO.SupplierPO;
+import com.manage.sys.entity.po.PurchaseOrderPO;
+import com.manage.sys.entity.po.SupplierPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +21,12 @@ public class SupplierService {
         return supplierWrapper.getById(id);
     }
 
-    public Boolean deleteSupplier(String name){
-        UpdateWrapper<SupplierPO>wrapper = new UpdateWrapper<>();
-        wrapper.eq("supplier_name",name);
+    public Boolean deleteSupplier(String name) {
+        UpdateWrapper<SupplierPO> wrapper = new UpdateWrapper<>();
+        wrapper.eq("supplier_name", name);
         return supplierWrapper.deleteSupplier(wrapper);
     }
+
     public SupplierPO searchSupplierByName(String name) {
         QueryWrapper<SupplierPO> wrapper = new QueryWrapper<SupplierPO>().eq("supplier_name", name);
         return supplierWrapper.searchSupplier(wrapper);
@@ -39,8 +39,7 @@ public class SupplierService {
     public Boolean updateSupplier(SupplierPO supplierPO) {
         Boolean flag1 = supplierWrapper.updateSupplier(supplierPO);
         if (!("".equals(supplierPO.getSupplierName()))) {
-            UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
-            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("customer_name", supplierPO.getSupplierName());
+            UpdateWrapper<PurchaseOrderPO> wrapper = new UpdateWrapper<PurchaseOrderPO>().eq("customer_name", supplierPO.getSupplierName());
             PurchaseOrderPO purchaseOrder = new PurchaseOrderPO();
             purchaseOrder.setSupplierName(supplierPO.getSupplierName());
             return purchaseOrderWrapper.updatePurchaseOrderBySomeThing(purchaseOrder, wrapper) && flag1;

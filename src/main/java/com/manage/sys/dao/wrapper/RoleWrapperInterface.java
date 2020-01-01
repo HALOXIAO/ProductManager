@@ -2,7 +2,7 @@ package com.manage.sys.dao.wrapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.manage.sys.entity.PO.RolePO;
+import com.manage.sys.entity.po.RolePO;
 
 import java.util.List;
 

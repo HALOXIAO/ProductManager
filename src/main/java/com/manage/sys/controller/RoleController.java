@@ -1,6 +1,6 @@
 package com.manage.sys.controller;
 
-import com.manage.sys.entity.PO.RolePO;
+import com.manage.sys.entity.po.RolePO;
 import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;

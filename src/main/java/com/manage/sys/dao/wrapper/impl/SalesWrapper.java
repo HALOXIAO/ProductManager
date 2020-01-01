@@ -3,7 +3,7 @@ package com.manage.sys.dao.wrapper.impl;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.manage.sys.dao.SalesMapper;
 import com.manage.sys.dao.wrapper.SalesWrapperInterface;
-import com.manage.sys.entity.PO.SalesPO;
+import com.manage.sys.entity.po.SalesPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

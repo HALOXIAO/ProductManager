@@ -1,7 +1,7 @@
 package com.manage.sys.service;
 
 import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
-import com.manage.sys.entity.PO.*;
+import com.manage.sys.entity.po.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PurchaseOrderService {

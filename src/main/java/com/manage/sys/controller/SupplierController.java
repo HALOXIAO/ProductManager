@@ -1,7 +1,7 @@
 package com.manage.sys.controller;
 
 import com.manage.sys.config.status.RESULT_BEAN_CODE;
-import com.manage.sys.entity.PO.SupplierPO;
+import com.manage.sys.entity.po.SupplierPO;
 import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;

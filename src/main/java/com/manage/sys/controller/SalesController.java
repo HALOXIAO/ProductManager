@@ -1,6 +1,6 @@
 package com.manage.sys.controller;
 
-import com.manage.sys.entity.PO.SalesPO;
+import com.manage.sys.entity.po.SalesPO;
 import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.service.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.manage.sys.entity.PO;
+package com.manage.sys.entity.po;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.sql.Timestamp;
 

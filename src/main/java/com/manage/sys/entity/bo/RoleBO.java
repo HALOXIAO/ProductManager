@@ -1,6 +1,4 @@
-package com.manage.sys.entity.BO;
-
-import javax.validation.constraints.NotBlank;
+package com.manage.sys.entity.bo;
 
 public class RoleBO {
     private Integer roleId;

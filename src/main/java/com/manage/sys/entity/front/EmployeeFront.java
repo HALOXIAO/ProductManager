@@ -1,4 +1,4 @@
-package com.manage.sys.entity.Front;
+package com.manage.sys.entity.front;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
@@ -44,7 +44,7 @@ public class EmployeeFront {
     @NotNull
     private Integer wage;
 
-
+    @Length()
     private String employeeAddress;
 
     @Email

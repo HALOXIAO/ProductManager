@@ -2,14 +2,9 @@ package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.manage.sys.dao.condition.QueryCondition;
-import com.manage.sys.dao.condition.UpdateCondition;
 import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
-import com.manage.sys.dao.wrapper.impl.PurchaseOrderWrapper;
-import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.dao.wrapper.impl.UserWrapper;
-import com.manage.sys.entity.PO.EmployeePO;
-import com.manage.sys.entity.PO.UserPO;
+import com.manage.sys.entity.po.EmployeePO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -36,12 +31,12 @@ public class EmployeeService {
     }
 
     public EmployeePO searchEmployeeByInternalName(String name) {
-        QueryWrapper<EmployeePO> wrapper = new QueryCondition<EmployeePO>().queryConditionBy("internal_name", name);
+        QueryWrapper<EmployeePO> wrapper = new QueryWrapper<EmployeePO>().eq("internal_name", name);
         return employeeWrapper.searchEmployeeBySomeThing(wrapper);
     }
 
 
-    public Boolean addEmployee(EmployeePO employee) {
+    public Boolean addEmployee(EmployeePO employee,Integer status) {
         return employeeWrapper.addEmployee(employee);
     }
 
@@ -49,7 +44,7 @@ public class EmployeeService {
     public Boolean deleteEmployee(String username) {
         EmployeePO employee = new EmployeePO();
         employee.setInternalName(username);
-        UpdateWrapper<EmployeePO> wrapper = new UpdateCondition<EmployeePO>().updateConditionByEqOne("internal_name", username);
+        UpdateWrapper<EmployeePO> wrapper = new UpdateWrapper<EmployeePO>().eq("internal_name", username);
         return employeeWrapper.deleteEmployee(employee, wrapper);
 
     }

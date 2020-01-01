@@ -1,6 +1,6 @@
 package com.manage.sys.dao.wrapper;
 
-import com.manage.sys.entity.PO.CustomerPO;
+import com.manage.sys.entity.po.CustomerPO;
 
 /**
  * Customer表的基本操作

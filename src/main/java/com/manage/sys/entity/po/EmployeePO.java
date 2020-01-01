@@ -1,4 +1,4 @@
-package com.manage.sys.entity.PO;
+package com.manage.sys.entity.po;
 
 import com.baomidou.mybatisplus.annotation.*;
 import org.hibernate.validator.constraints.Length;

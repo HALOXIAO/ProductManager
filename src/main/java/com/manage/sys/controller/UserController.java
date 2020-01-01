@@ -1,6 +1,6 @@
 package com.manage.sys.controller;
 
-import com.manage.sys.entity.PO.UserPO;
+import com.manage.sys.entity.po.UserPO;
 import com.manage.sys.manager.common.beans.ResultBean;
 import com.manage.sys.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
