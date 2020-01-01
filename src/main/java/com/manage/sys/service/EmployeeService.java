@@ -40,80 +40,76 @@ public class EmployeeService {
         return employeeWrapper.searchEmployeeBySomeThing(wrapper);
     }
 
-    public Boolean addEmployee(EmployeePO employeePO) {
-        if (employeePO.getStatus() != null) {
-            UserPO userPO = new UserPO();
-            UpdateWrapper<UserPO> userUpdateWrapper = new UpdateCondition<UserPO>().updateConditionByEqOne("username", employeePO.getInternalName());
-            userPO.setStatus(employeePO.getStatus());
-            return userWrapper.updateUserByUsername(userPO, userUpdateWrapper);
-        }
-        return employeeWrapper.addEmployee(employeePO);
+
+    public Boolean addEmployee(EmployeePO employee) {
+        return employeeWrapper.addEmployee(employee);
     }
+
 
     public Boolean deleteEmployee(String username) {
-        EmployeePO employeePO = new EmployeePO();
-        employeePO.setInternalName(username);
+        EmployeePO employee = new EmployeePO();
+        employee.setInternalName(username);
         UpdateWrapper<EmployeePO> wrapper = new UpdateCondition<EmployeePO>().updateConditionByEqOne("internal_name", username);
-        return employeeWrapper.deleteEmployee(employeePO, wrapper);
+        return employeeWrapper.deleteEmployee(employee, wrapper);
 
     }
 
-    public Boolean updateEmployee(EmployeePO employeePO) {
-        return employeeWrapper.updateEmployee(employeePO);
+    public Boolean updateEmployee(EmployeePO employee) {
+        return employeeWrapper.updateEmployee(employee);
     }
 //
 //
 
 
-//    private Boolean updateEmployeeFounderForSales(EmployeePO employeePO) {
+//    private Boolean updateEmployeeFounderForSales(EmployeePO employee) {
 //            UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("founder_name", employeePO.getEmployeeName());
+//            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("founder_name", employee.getEmployeeName());
 //            SalesPO salesPO = new SalesPO();
-//            salesPO.setFounderName(employeePO.getEmployeeName());
+//            salesPO.setFounderName(employee.getEmployeeName());
 //            return salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
 //    }
 //
-//    private Boolean updateEmployeeReviewForSales(EmployeePO employeePO) {
+//    private Boolean updateEmployeeReviewForSales(EmployeePO employee) {
 //            UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("review_name", employeePO.get);
+//            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("review_name", employee.get);
 //            SalesPO salesPO = new SalesPO();
-//            salesPO.setCommodityName(employeePO.getEmployeeName());
+//            salesPO.setCommodityName(employee.getEmployeeName());
 //            return salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
 //    }
 //
-//    private Boolean updateEmployeeStatusForUser(EmployeePO employeePO) {
-//        employeeWrapper.updateEmployee(employeePO);
-//        boolean flag1 = employeeWrapper.updateEmployee(employeePO);
-//        if (!("").equals(employeePO.getEmployeeName())) {
+//    private Boolean updateEmployeeStatusForUser(EmployeePO employee) {
+//        employeeWrapper.updateEmployee(employee);
+//        boolean flag1 = employeeWrapper.updateEmployee(employee);
+//        if (!("").equals(employee.getEmployeeName())) {
 //            UpdateCondition<UserPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<UserPO> wrapper = updateCondition.updateConditionByEqOne("employeeName", employeePO.getEmployeeName());
+//            UpdateWrapper<UserPO> wrapper = updateCondition.updateConditionByEqOne("employeeName", employee.getEmployeeName());
 //            UserPO userPO = new UserPO();
 //            return flag1;
 //        }
 //        return flag1;
 //    }
 //
-//    private Boolean updateEmployeeFounderForPurchaseOrder(EmployeePO employeePO) {
-//        employeeWrapper.updateEmployee(employeePO);
-//        boolean flag1 = employeeWrapper.updateEmployee(employeePO);
-//        if (!("").equals(employeePO.getEmployeeName())) {
+//    private Boolean updateEmployeeFounderForPurchaseOrder(EmployeePO employee) {
+//        employeeWrapper.updateEmployee(employee);
+//        boolean flag1 = employeeWrapper.updateEmployee(employee);
+//        if (!("").equals(employee.getEmployeeName())) {
 //            UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("founderName", employeePO.getEmployeeName());
+//            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("founderName", employee.getEmployeeName());
 //            PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
-//            purchaseOrderPO.setCommodityName(employeePO.getEmployeeName());
+//            purchaseOrderPO.setCommodityName(employee.getEmployeeName());
 //            return flag1;
 //        }
 //        return flag1;
 //    }
 //
-//    private Boolean updateEmployeeReviewForPurchaseOrder(EmployeePO employeePO) {
-//        employeeWrapper.updateEmployee(employeePO);
-//        boolean flag1 = employeeWrapper.updateEmployee(employeePO);
-//        if (!("").equals(employeePO.getEmployeeName())) {
+//    private Boolean updateEmployeeReviewForPurchaseOrder(EmployeePO employee) {
+//        employeeWrapper.updateEmployee(employee);
+//        boolean flag1 = employeeWrapper.updateEmployee(employee);
+//        if (!("").equals(employee.getEmployeeName())) {
 //            UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("reviewName", employeePO.getEmployeeName());
+//            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("reviewName", employee.getEmployeeName());
 //            PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
-//            purchaseOrderPO.setCommodityName(employeePO.getEmployeeName());
+//            purchaseOrderPO.setCommodityName(employee.getEmployeeName());
 //            return flag1;
 //        }
 //        return flag1;

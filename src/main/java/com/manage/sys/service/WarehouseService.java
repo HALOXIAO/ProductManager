@@ -6,6 +6,7 @@ import com.manage.sys.dao.wrapper.impl.SalesWrapper;
 import com.manage.sys.dao.wrapper.impl.WarehouseProductWrapper;
 import com.manage.sys.dao.wrapper.impl.WarehouseWrapper;
 import com.manage.sys.entity.PO.WarehousePO;
+import com.manage.sys.entity.PO.WarehouseProductPO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class WarehouseService {
