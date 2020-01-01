@@ -16,8 +16,6 @@ public class SalesPO {
     @TableField("customer_id")
     private Long customerId;
 
-    @TableField("customer_name")
-    private String customerName;
 
     @TableField("total_price")
     private Double totalPrice;
@@ -75,13 +73,6 @@ public class SalesPO {
         this.customerId = customerId;
     }
 
-    public String getCustomerName() {
-        return this.customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
 
     public Double getTotalPrice() {
         return this.totalPrice;
@@ -145,7 +136,6 @@ public class SalesPO {
                 "salesId=" + salesId +
                 ", salesNumber='" + salesNumber + '\'' +
                 ", customerId=" + customerId +
-                ", customerName='" + customerName + '\'' +
                 ", totalPrice=" + totalPrice +
                 ", totalQuantity=" + totalQuantity +
                 ", description='" + description + '\'' +

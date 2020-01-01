@@ -1,81 +1,50 @@
 package com.manage.sys.entity.PO;
 
+
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-
-
 @TableName( "purchase_order_product")
 public class PurchaseOrderProductPO {
+    @TableId( "purchase_order_product_id")
+    private Long purchaseOrderProductId;
 
-    @TableId( "id")
-    private Long id;
+    @TableField( "purchase_order_id")
+    private Long purchaseOrderId;
 
-    @TableField( "purchase_order_number")
-    private String purchaseOrderNumber;
-
-    @TableField( "purchase_product_id")
-    private Long purchaseProductId;
-
-    @TableField( "purchase_product_number")
-    private String purchaseProductNumber;
-
-    @TableField( "purchase_product_name")
-    private String purchaseProductName;
+    @TableField( " purchase_product_id")
+    private Long  PurchaseProductId;
 
     @TableField( "quantity")
     private Integer quantity;
 
-    @TableField("status")
+    @TableField( "status")
     private Integer status;
 
-    public Integer getStatus() {
-        return status;
+
+    public Long getPurchaseOrderProductId() {
+        return this.purchaseOrderProductId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setPurchaseOrderProductId(Long purchaseOrderProductId) {
+        this.purchaseOrderProductId = purchaseOrderProductId;
     }
 
     public Long getPurchaseOrderId() {
-        return this.id;
+        return this.purchaseOrderId;
     }
 
-    public void setPurchaseOrderId(Long id) {
-        this.id = id;
-    }
-
-    public String getPurchaseOrderNumber() {
-        return this.purchaseOrderNumber;
-    }
-
-    public void setPurchaseOrderNumber(String purchaseOrderNumber) {
-        this.purchaseOrderNumber = purchaseOrderNumber;
+    public void setPurchaseOrderId(Long purchaseOrderId) {
+        this.purchaseOrderId = purchaseOrderId;
     }
 
     public Long getPurchaseProductId() {
-        return this.purchaseProductId;
+        return this. PurchaseProductId;
     }
 
-    public void setPurchaseProductId(Long purchaseProductId) {
-        this.purchaseProductId = purchaseProductId;
-    }
-
-    public String getPurchaseProductNumber() {
-        return this.purchaseProductNumber;
-    }
-
-    public void setPurchaseProductNumber(String purchaseProductNumber) {
-        this.purchaseProductNumber = purchaseProductNumber;
-    }
-
-    public String getPurchaseProductName() {
-        return this.purchaseProductName;
-    }
-
-    public void setPurchaseProductName(String purchaseProductName) {
-        this.purchaseProductName = purchaseProductName;
+    public void setPurchaseProductId(Long  PurchaseProductId) {
+        this. PurchaseProductId =  PurchaseProductId;
     }
 
     public Integer getQuantity() {
@@ -86,16 +55,11 @@ public class PurchaseOrderProductPO {
         this.quantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return "PurchaseOrderProductPO{" +
-                "id=" + id +
-                ", purchaseOrderNumber='" + purchaseOrderNumber + '\'' +
-                ", purchaseProductId=" + purchaseProductId +
-                ", purchaseProductNumber='" + purchaseProductNumber + '\'' +
-                ", purchaseProductName='" + purchaseProductName + '\'' +
-                ", quantity=" + quantity +
-                ", status=" + status +
-                '}';
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

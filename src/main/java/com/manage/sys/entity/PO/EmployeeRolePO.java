@@ -1,33 +1,31 @@
 package com.manage.sys.entity.PO;
 
+
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName("employee_role")
+@TableName( "employee_role")
 public class EmployeeRolePO {
-    @TableId("employee_id")
+    @TableId( "employee_role_id")
+    private Long employeeRoleId;
+
+    @TableField( "employee_id")
     private Long employeeId;
 
-    @TableField("employee_internal_name")
-    private String employeeInternalName;
+    @TableField( "role_id")
+    private String roleId;
 
-    @TableField("role_id")
-    private Integer roleId;
-
-    @TableField("role_name")
-    private String roleName;
-
-    @TableField("status")
+    @TableField( "status")
     private Integer status;
 
 
-    public Integer getStatus() {
-        return status;
+    public Long getEmployeeRoleId() {
+        return this.employeeRoleId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setEmployeeRoleId(Long employeeRoleId) {
+        this.employeeRoleId = employeeRoleId;
     }
 
     public Long getEmployeeId() {
@@ -38,38 +36,19 @@ public class EmployeeRolePO {
         this.employeeId = employeeId;
     }
 
-    public String getEmployeeInternalName() {
-        return this.employeeInternalName;
-    }
-
-    public void setEmployeeInternalName(String employeeInternalName) {
-        this.employeeInternalName = employeeInternalName;
-    }
-
-    public Integer getRoleId() {
+    public String getRoleId() {
         return this.roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
-    public String getRoleName() {
-        return this.roleName;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    @Override
-    public String toString() {
-        return "EmployeeRole{" +
-                "employeeId=" + employeeId +
-                ", employeeInternalName='" + employeeInternalName + '\'' +
-                ", roleId=" + roleId +
-                ", roleName='" + roleName + '\'' +
-                ", status=" + status +
-                '}';
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

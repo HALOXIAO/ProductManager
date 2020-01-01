@@ -7,62 +7,44 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("order_product")
 public class OrderProductPO {
-    @TableId("id")
-    private Long id;
+    @TableId( "order_product_id")
+    private Long orderProductId;
 
-    @TableField("order_number")
-    private String orderNumber;
+    @TableField( "sales_order_id")
+    private Long salesOrderId;
 
-    @TableField("product_id")
-    private Long productId;
+    @TableField( " product_id")
+    private Long  ProductId;
 
-    @TableField("product_name")
-    private String productName;
-
-    @TableField("quantity")
+    @TableField( "quantity")
     private Integer quantity;
 
-    @TableField("status")
+    @TableField( "status")
     private Integer status;
 
-    public Integer getStatus() {
-        return status;
+
+    public Long getOrderProductId() {
+        return this.orderProductId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setOrderProductId(Long orderProductId) {
+        this.orderProductId = orderProductId;
     }
 
-    public Long getOrderId() {
-        return this.id;
+    public Long getSalesOrderId() {
+        return this.salesOrderId;
     }
 
-    public void setOrderId(Long id) {
-        this.id = id;
-    }
-
-    public String getOrderNumber() {
-        return this.orderNumber;
-    }
-
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber;
+    public void setSalesOrderId(Long salesOrderId) {
+        this.salesOrderId = salesOrderId;
     }
 
     public Long getProductId() {
-        return this.productId;
+        return this.ProductId;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return this.productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductId(Long  ProductId) {
+        this. ProductId =  ProductId;
     }
 
     public Integer getQuantity() {
@@ -73,16 +55,11 @@ public class OrderProductPO {
         this.quantity = quantity;
     }
 
+    public Integer getStatus() {
+        return this.status;
+    }
 
-    @Override
-    public String toString() {
-        return "OrderProductPO{" +
-                "id=" + id +
-                ", orderNumber='" + orderNumber + '\'' +
-                ", productId=" + productId +
-                ", productName='" + productName + '\'' +
-                ", quantity=" + quantity +
-                ", status=" + status +
-                '}';
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

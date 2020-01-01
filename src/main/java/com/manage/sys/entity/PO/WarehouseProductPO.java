@@ -1,56 +1,33 @@
 package com.manage.sys.entity.PO;
 
-
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("warehouse_product")
 public class WarehouseProductPO {
+    @TableId("warehouse_product_id")
+    private Long warehouseProductId;
 
-    @TableId("product_id")
+    @TableField("product_id")
     private Long productId;
-
-    @TableField("product_name")
-    private String productName;
-
-    @TableField("product_number")
-    private String productNumber;
-
-    @TableField("quantity")
-    private Integer quantity;
-
-    @TableField("warehouse_name")
-    private String warehouseName;
 
     @TableField("warehouse_id")
     private Long warehouseId;
 
+    @TableField("quantity")
+    private Integer quantity;
+
     @TableField("status")
     private Integer status;
 
-    public Integer getStatus() {
-        return status;
+
+    public Long getWarehouseProductId() {
+        return this.warehouseProductId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Long getWarehouseId() {
-        return warehouseId;
-    }
-
-    public void setWarehouseId(Long warehouseId) {
-        this.warehouseId = warehouseId;
-    }
-
-    public String getWarehouseName() {
-        return warehouseName;
-    }
-
-    public void setWarehouseName(String warehouseName) {
-        this.warehouseName = warehouseName;
+    public void setWarehouseProductId(Long warehouseProductId) {
+        this.warehouseProductId = warehouseProductId;
     }
 
     public Long getProductId() {
@@ -61,20 +38,12 @@ public class WarehouseProductPO {
         this.productId = productId;
     }
 
-    public String getProductName() {
-        return this.productName;
+    public Long getWarehouseId() {
+        return this.warehouseId;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductNumber() {
-        return this.productNumber;
-    }
-
-    public void setProductNumber(String productNumber) {
-        this.productNumber = productNumber;
+    public void setWarehouseId(Long warehouseId) {
+        this.warehouseId = warehouseId;
     }
 
     public Integer getQuantity() {
@@ -85,16 +54,11 @@ public class WarehouseProductPO {
         this.quantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return "WarehouseProductPO{" +
-                "productId=" + productId +
-                ", productName='" + productName + '\'' +
-                ", productNumber='" + productNumber + '\'' +
-                ", quantity=" + quantity +
-                ", warehouseName='" + warehouseName + '\'' +
-                ", warehouseId=" + warehouseId +
-                ", status='" + status + '\'' +
-                '}';
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

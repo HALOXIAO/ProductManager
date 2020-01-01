@@ -36,9 +36,8 @@ public class EmployeePO {
     @Digits(integer = 1, fraction = 0, message = "状态需符合而规定")
     private Integer sex;
 
-    @NotEmpty
-    @Length(min = 2, max = 2)
-    private String nationality;
+    @NotNull
+    private Integer nation;
 
     @Past
     private java.sql.Date birthDate;
@@ -110,12 +109,12 @@ public class EmployeePO {
         this.sex = sex;
     }
 
-    public String getNationality() {
-        return this.nationality;
+    public Integer getNationality() {
+        return this.nation;
     }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
+    public void setNationality(Integer nation) {
+        this.nation = nation;
     }
 
     public java.sql.Date getBirthDate() {
@@ -176,7 +175,7 @@ public class EmployeePO {
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 ", identityCard='" + identityCard + '\'' +
                 ", sex=" + sex +
-                ", nationality='" + nationality + '\'' +
+                ", nation='" + nation + '\'' +
                 ", birthDate=" + birthDate +
                 ", wage=" + wage +
                 ", employeeAddress='" + employeeAddress + '\'' +
