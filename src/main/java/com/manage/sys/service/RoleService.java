@@ -40,20 +40,14 @@ public class RoleService {
 
 
     public Boolean updateRole(RolePO rolePO) {
-
-        return roleWrapper.updateRoleBySomeThing(rolePO, new UpdateWrapper<RolePO>().eq("role_name", rolePO.getRoleName());
-);
+        if (rolePO.getRoleId() != null) {
+            return roleWrapper.updateRoleBySomeThing(rolePO, new UpdateWrapper<RolePO>().eq("role_id", rolePO.getRoleId()));
+        } else if (rolePO.getRoleName() != null) {
+            return roleWrapper.updateRoleBySomeThing(rolePO, new UpdateWrapper<RolePO>().eq("role_name", rolePO.getRoleName()));
+        }
+        return Boolean.FALSE;
     }
 
 
-    //TODO
-    public Boolean updateRoleName(RolePO rolePO) {
-        UpdateWrapper<EmployeePO> wrapper = new UpdateCondition<EmployeePO>().updateConditionByEqOne("employee_type_name", rolePO.getRoleName());
-        EmployeePO employee = new EmployeePO();
-        employee.setEmployeeTypeName(rolePO.getRoleName());
-        Boolean employeeFlag = employeeWrapper.updateEmployeeBySomeThing(employee, wrapper);
-        Boolean roleFlag = roleWrapper.updateRoleBySomeThing(rolePO, new UpdateCondition<RolePO>().updateConditionByEqOne("role_name", rolePO.getRoleName()));
-        return employeeFlag && roleFlag;
-    }
 
 }

@@ -21,7 +21,7 @@ public class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrapp
 
     @Override
     public Boolean addEmployee(EmployeePO employee) {
-        return null;
+        return employeeMapper.insert(employee) == 1;
     }
 
     @Override
@@ -56,4 +56,8 @@ public class EmployeeWrapper implements com.manage.sys.dao.wrapper.EmployeeWrapp
         employee.setStatus(EMPLOYEE_STATUS_CODE_QUIT.ordinal());
         return employeeMapper.update(employee, updateWrapper) == 1;
     }
+
+
+
+
 }

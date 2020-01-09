@@ -1,53 +1,60 @@
-package com.manage.sys.entity.po;
-
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+package com.manage.sys.entity.front;
 
 
-@TableName("product")
-public class ProductPO {
+import org.hibernate.validator.constraints.Length;
 
-    @TableId("product_id")
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+
+public class ProductFront {
+    @Null
     private Long productId;
 
-    @TableField("product_number")
+    @Null
     private String productNumber;
 
-    @TableField("product_name")
+    @NotEmpty
+    @Length(max = 15)
     private String productName;
 
-    @TableField("single_price")
+    @NotNull
+    @Min(0)
     private Double singlePrice;
 
-    @TableField("specifications")
+    @NotEmpty
+    @Length(max = 50)
     private String specifications;
 
-    @TableField("product_category")
+    @NotEmpty
+    @Length(max = 30)
     private String productCategory;
 
-    @TableField("brand")
+    @NotEmpty
+    @Length(max = 50)
     private String brand;
 
-    @TableField("unit_of_measurement")
+    @NotEmpty
+    @Length(max = 20)
     private String unitOfMeasurement;
 
-    @TableField("color")
+    @Length(max = 20)
     private String color;
 
-    @TableField("material")
+    @Length(max = 50)
     private String material;
 
-    @TableField("description")
+    @Length(max = 200)
     private String description;
 
-    @TableField("update_time")
+
+    @Null
     private java.sql.Timestamp updateTime;
 
-    @TableField("status")
+    @NotNull
     private Integer status;
 
-    @TableField("picture")
     private String picture;
 
 
@@ -140,6 +147,7 @@ public class ProductPO {
     }
 
 
+
     public java.sql.Timestamp getUpdateTime() {
         return this.updateTime;
     }
@@ -184,3 +192,5 @@ public class ProductPO {
                 '}';
     }
 }
+
+

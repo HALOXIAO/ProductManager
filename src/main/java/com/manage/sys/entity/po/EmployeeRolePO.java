@@ -5,18 +5,18 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName( "employee_role")
+@TableName("employee_role")
 public class EmployeeRolePO {
-    @TableId( "employee_role_id")
+    @TableId("employee_role_id")
     private Long employeeRoleId;
 
-    @TableField( "employee_id")
+    @TableField("employee_id")
     private Long employeeId;
 
-    @TableField( "role_id")
-    private String roleId;
+    @TableField("role_id")
+    private Integer roleId;
 
-    @TableField( "status")
+    @TableField("status")
     private Integer status;
 
 
@@ -24,9 +24,6 @@ public class EmployeeRolePO {
         return this.employeeRoleId;
     }
 
-    public void setEmployeeRoleId(Long employeeRoleId) {
-        this.employeeRoleId = employeeRoleId;
-    }
 
     public Long getEmployeeId() {
         return this.employeeId;
@@ -36,11 +33,11 @@ public class EmployeeRolePO {
         this.employeeId = employeeId;
     }
 
-    public String getRoleId() {
+    public Integer getRoleId() {
         return this.roleId;
     }
 
-    public void setRoleId(String roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
@@ -50,5 +47,15 @@ public class EmployeeRolePO {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeRolePO{" +
+                "employeeRoleId=" + employeeRoleId +
+                ", employeeId=" + employeeId +
+                ", roleId=" + roleId +
+                ", status=" + status +
+                '}';
     }
 }

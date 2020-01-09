@@ -2,15 +2,23 @@ package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.manage.sys.dao.wrapper.impl.EmployeeRoleWrapper;
 import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
 import com.manage.sys.dao.wrapper.impl.UserWrapper;
 import com.manage.sys.entity.po.EmployeePO;
+import com.manage.sys.entity.po.EmployeeRolePO;
+import com.manage.sys.entity.po.UserPO;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLData;
+import java.sql.SQLDataException;
 import java.util.List;
 
-@Component
+@Service
 public class EmployeeService {
 
 
@@ -19,6 +27,10 @@ public class EmployeeService {
 
     @Autowired
     UserWrapper userWrapper;
+
+    @Autowired
+    EmployeeRoleWrapper employeeRoleWrapper;
+
 
     public List<EmployeePO> getEmployeeWithPage(Long sum, Long page) {
         QueryWrapper<EmployeePO> wrapper = new QueryWrapper<>();
@@ -35,9 +47,19 @@ public class EmployeeService {
         return employeeWrapper.searchEmployeeBySomeThing(wrapper);
     }
 
-
-    public Boolean addEmployee(EmployeePO employee,Integer status) {
-        return employeeWrapper.addEmployee(employee);
+    @Transactional
+    public Boolean addEmployee(EmployeePO employee, Integer roleId) throws SQLDataException {
+        if (!employeeWrapper.addEmployee(employee)) {
+            throw new SQLDataException("addEmployee Error");
+        }
+        Long employeeId = employee.getEmployeeId();
+        EmployeeRolePO employeeRolePo = new EmployeeRolePO();
+        employeeRolePo.setEmployeeId(employeeId);
+        employeeRolePo.setRoleId(roleId);
+        if (!employeeRoleWrapper.connectionEmployeeAndRole(employeeRolePo)) {
+            throw new SQLDataException("Employee_Role Create Error");
+        }
+        return Boolean.TRUE;
     }
 
 
@@ -49,7 +71,12 @@ public class EmployeeService {
 
     }
 
-    public Boolean updateEmployee(EmployeePO employee) {
+    @Transactional()
+    public Boolean updateEmployee(EmployeePO employee, Integer status) {
+        if (status != null) {
+            UserPO user = new UserPO();
+            userWrapper.updateUserByUsername(user)
+        }
         return employeeWrapper.updateEmployee(employee);
     }
 //

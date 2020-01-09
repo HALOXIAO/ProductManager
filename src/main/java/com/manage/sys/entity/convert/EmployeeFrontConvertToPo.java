@@ -8,8 +8,8 @@ package com.manage.sys.entity.convert;
 
 @Mapper
 public interface EmployeeFrontConvertToPo {
-    EmployeeFrontConvertToPo INSTACE = Mappers.getMapper(EmployeeFrontConvertToPo.class);
+    EmployeeFrontConvertToPo INSTANCE = Mappers.getMapper(EmployeeFrontConvertToPo.class);
 
-    @Mapping(target = "status",ignore = true)
+//    @Mapping(target = "status",ignore = true)
     EmployeePO employeeFrontToEmployeePo(EmployeeFront employeeFront);
 }

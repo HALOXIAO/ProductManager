@@ -21,6 +21,4 @@ public interface EmployeeWrapperInterface {
     public Boolean deleteEmployee(EmployeePO employee, UpdateWrapper<EmployeePO> updateWrapper);
 
     public List<EmployeePO> searchEmployeeWithPage(Long sum, Long page, QueryWrapper<EmployeePO> wrapper);
-
-
 }

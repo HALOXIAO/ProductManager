@@ -1,14 +1,19 @@
 package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.manage.sys.config.status.PRODUCT_STATUS_CODE;
+import com.manage.sys.controller.ProductController;
 import com.manage.sys.dao.wrapper.impl.OrderProductWrapper;
 import com.manage.sys.dao.wrapper.impl.ProductWrapper;
 import com.manage.sys.entity.po.OrderProductPO;
 import com.manage.sys.entity.po.ProductPO;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -24,9 +29,7 @@ public class ProductService {
     }
 
 
-
     public Boolean addProduct(ProductPO productPO) {
-
         return productWrapper.addProduct(productPO);
     }
 
@@ -45,5 +48,21 @@ public class ProductService {
     }
 
 
+    public Boolean deleteProduct(Integer id, String number) {
+        ProductPO productPO = new ProductPO();
+        UpdateWrapper<ProductPO> wrapper = new UpdateWrapper<>();
+        if (id != null) {
+            wrapper.eq("product_id", id);
+        } else {
+            wrapper.eq("product_number", number);
+        }
+        productWrapper.deleteProductBySomething(productPO, wrapper);
+    }
+
+    public List<ProductPO> searchProduct(String idOrNumberOrName,Integer status){
+        if(){
+
+        }
+    }
 
 }

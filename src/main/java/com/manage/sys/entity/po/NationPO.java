@@ -29,4 +29,12 @@ public class NationPO {
     public void setNationName(String nationName) {
         this.nationName = nationName;
     }
+
+    @Override
+    public String toString() {
+        return "NationPO{" +
+                "nation=" + nation +
+                ", nationName='" + nationName + '\'' +
+                '}';
+    }
 }

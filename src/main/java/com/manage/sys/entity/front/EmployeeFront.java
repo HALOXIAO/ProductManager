@@ -35,8 +35,6 @@ public class EmployeeFront {
     @NotNull
     private Integer nation;
 
-
-
     @Past
     private java.sql.Date birthDate;
 
@@ -44,7 +42,8 @@ public class EmployeeFront {
     @NotNull
     private Integer wage;
 
-    @Length()
+
+    @Length(min = 0, max = 255)
     private String employeeAddress;
 
     @Email
@@ -56,9 +55,36 @@ public class EmployeeFront {
     @NotNull(message = "需要设定状态")
     private Integer status;
 
+    @NotNull
+    private Integer roleId;
 
     @Null
     private java.sql.Timestamp updateTime;
+
+
+    public Integer getNation() {
+        return nation;
+    }
+
+    public void setNation(Integer nation) {
+        this.nation = nation;
+    }
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
 
     public Long getEmployeeId() {
         return this.employeeId;
@@ -167,19 +193,20 @@ public class EmployeeFront {
 
     @Override
     public String toString() {
-        return "EmployeePO{" +
+        return "EmployeeFront{" +
                 "employeeId=" + employeeId +
                 ", internalName='" + internalName + '\'' +
                 ", employeeName='" + employeeName + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 ", identityCard='" + identityCard + '\'' +
                 ", sex=" + sex +
-                ", nation='" + nation + '\'' +
+                ", nation=" + nation +
                 ", birthDate=" + birthDate +
                 ", wage=" + wage +
                 ", employeeAddress='" + employeeAddress + '\'' +
                 ", eMail='" + eMail + '\'' +
                 ", status=" + status +
+                ", roleId=" + roleId +
                 ", updateTime=" + updateTime +
                 '}';
     }
