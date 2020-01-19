@@ -1,8 +1,17 @@
 package com.manage.sys.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.manage.sys.entity.po.EmployeeRolePO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public interface EmployeeRoleMapper extends BaseMapper<EmployeeRolePO> {
+@Component
+public class EmployeeRoleMapper  {
+
+    @Autowired
+    EmployeeRole employeeRoleMapper;
+
+    public Boolean connectionEmployeeAndRole(EmployeeRolePO employeeRolePo) {
+        return employeeRoleMapper.insert(employeeRolePo) == 1;
+    }
 
 }

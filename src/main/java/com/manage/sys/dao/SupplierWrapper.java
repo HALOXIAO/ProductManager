@@ -1,4 +1,4 @@
-package com.manage.sys.dao.wrapper.impl;
+package com.manage.sys.dao;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;

@@ -1,7 +1,26 @@
 package com.manage.sys.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.manage.sys.entity.po.CustomerPO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public interface CustomerMapper extends BaseMapper<CustomerPO> {
+@Component
+public  class CustomerMapper {
+
+    public Boolean updateCustomer(CustomerPO customerPO) {
+        return null;
+    }
+
+    @Autowired
+    Customer customer;
+
+    public Boolean addCustomer(CustomerPO customer) {
+        return this.customer.insert(customer)==1;
+
+    }
+
+    public CustomerPO searchCustomerById(long id) {
+        return customer.selectById(id);
+    }
+
 }
