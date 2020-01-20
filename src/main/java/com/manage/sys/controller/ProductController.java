@@ -1,19 +1,18 @@
 package com.manage.sys.controller;
 
-        import com.google.common.collect.ImmutableList;
-        import com.manage.sys.entity.convert.ProductFrontConvertToPo;
-        import com.manage.sys.entity.front.ProductFront;
-        import com.manage.sys.entity.po.ProductPO;
-        import com.manage.sys.manager.common.beans.ResultBean;
-        import com.manage.sys.service.ProductService;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.validation.BindingResult;
-        import org.springframework.web.bind.annotation.*;
+import com.google.common.collect.ImmutableList;
+import com.manage.sys.entity.convert.ProductFrontConvertToPo;
+import com.manage.sys.entity.front.ProductFront;
+import com.manage.sys.entity.po.ProductPO;
+import com.manage.sys.manager.common.beans.ResultBean;
+import com.manage.sys.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
-
-        import javax.validation.Valid;
-        import java.util.List;
-        import java.util.Objects;
+import javax.validation.Valid;
+import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/products")

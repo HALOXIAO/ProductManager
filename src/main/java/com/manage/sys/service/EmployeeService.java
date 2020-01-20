@@ -2,19 +2,16 @@ package com.manage.sys.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.manage.sys.dao.wrapper.impl.EmployeeRoleWrapper;
-import com.manage.sys.dao.wrapper.impl.EmployeeWrapper;
-import com.manage.sys.dao.wrapper.impl.UserWrapper;
+import com.manage.sys.dao.EmployeeMapper;
+import com.manage.sys.dao.EmployeeRoleMapper;
+import com.manage.sys.dao.UserMapper;
 import com.manage.sys.entity.po.EmployeePO;
 import com.manage.sys.entity.po.EmployeeRolePO;
 import com.manage.sys.entity.po.UserPO;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLData;
 import java.sql.SQLDataException;
 import java.util.List;
 
@@ -23,40 +20,40 @@ public class EmployeeService {
 
 
     @Autowired
-    EmployeeWrapper employeeWrapper;
+    EmployeeMapper employeeMapper;
 
     @Autowired
-    UserWrapper userWrapper;
+    UserMapper userMapper;
 
     @Autowired
-    EmployeeRoleWrapper employeeRoleWrapper;
+    EmployeeRoleMapper employeeRoleMapper;
 
 
     public List<EmployeePO> getEmployeeWithPage(Long sum, Long page) {
         QueryWrapper<EmployeePO> wrapper = new QueryWrapper<>();
-        return employeeWrapper.searchEmployeeWithPage(sum, page, wrapper);
+        return employeeMapper.searchEmployeeWithPage(sum, page, wrapper);
     }
 
 
     public EmployeePO searchEmployeeById(int id) {
-        return employeeWrapper.searchEmployeeById(id);
+        return employeeMapper.searchEmployeeById(id);
     }
 
     public EmployeePO searchEmployeeByInternalName(String name) {
         QueryWrapper<EmployeePO> wrapper = new QueryWrapper<EmployeePO>().eq("internal_name", name);
-        return employeeWrapper.searchEmployeeBySomeThing(wrapper);
+        return employeeMapper.searchEmployeeBySomeThing(wrapper);
     }
 
     @Transactional
     public Boolean addEmployee(EmployeePO employee, Integer roleId) throws SQLDataException {
-        if (!employeeWrapper.addEmployee(employee)) {
+        if (!employeeMapper.addEmployee(employee)) {
             throw new SQLDataException("addEmployee Error");
         }
         Long employeeId = employee.getEmployeeId();
         EmployeeRolePO employeeRolePo = new EmployeeRolePO();
         employeeRolePo.setEmployeeId(employeeId);
         employeeRolePo.setRoleId(roleId);
-        if (!employeeRoleWrapper.connectionEmployeeAndRole(employeeRolePo)) {
+        if (!employeeRoleMapper.connectionEmployeeAndRole(employeeRolePo)) {
             throw new SQLDataException("Employee_Role Create Error");
         }
         return Boolean.TRUE;
@@ -67,7 +64,7 @@ public class EmployeeService {
         EmployeePO employee = new EmployeePO();
         employee.setInternalName(username);
         UpdateWrapper<EmployeePO> wrapper = new UpdateWrapper<EmployeePO>().eq("internal_name", username);
-        return employeeWrapper.deleteEmployee(employee, wrapper);
+        return employeeMapper.deleteEmployee(employee, wrapper);
 
     }
 
@@ -75,9 +72,9 @@ public class EmployeeService {
     public Boolean updateEmployee(EmployeePO employee, Integer status) {
         if (status != null) {
             UserPO user = new UserPO();
-            userWrapper.updateUserByUsername(user)
+            userMapper.updateUserByUsername(user)
         }
-        return employeeWrapper.updateEmployee(employee);
+        return employeeMapper.updateEmployee(employee);
     }
 //
 //
@@ -85,26 +82,26 @@ public class EmployeeService {
 
 //    private Boolean updateEmployeeFounderForSales(EmployeePO employee) {
 //            UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("founder_name", employee.getEmployeeName());
+//            UpdateMapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("founder_name", employee.getEmployeeName());
 //            SalesPO salesPO = new SalesPO();
 //            salesPO.setFounderName(employee.getEmployeeName());
-//            return salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
+//            return salesMapper.updateSalesBySomeThing(salesPO,wrapper);
 //    }
 //
 //    private Boolean updateEmployeeReviewForSales(EmployeePO employee) {
 //            UpdateCondition<SalesPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("review_name", employee.get);
+//            UpdateMapper<SalesPO> wrapper = updateCondition.updateConditionByEqOne("review_name", employee.get);
 //            SalesPO salesPO = new SalesPO();
 //            salesPO.setCommodityName(employee.getEmployeeName());
-//            return salesWrapper.updateSalesBySomeThing(salesPO,wrapper);
+//            return salesMapper.updateSalesBySomeThing(salesPO,wrapper);
 //    }
 //
 //    private Boolean updateEmployeeStatusForUser(EmployeePO employee) {
-//        employeeWrapper.updateEmployee(employee);
-//        boolean flag1 = employeeWrapper.updateEmployee(employee);
+//        employeeMapper.updateEmployee(employee);
+//        boolean flag1 = employeeMapper.updateEmployee(employee);
 //        if (!("").equals(employee.getEmployeeName())) {
 //            UpdateCondition<UserPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<UserPO> wrapper = updateCondition.updateConditionByEqOne("employeeName", employee.getEmployeeName());
+//            UpdateMapper<UserPO> wrapper = updateCondition.updateConditionByEqOne("employeeName", employee.getEmployeeName());
 //            UserPO userPO = new UserPO();
 //            return flag1;
 //        }
@@ -112,11 +109,11 @@ public class EmployeeService {
 //    }
 //
 //    private Boolean updateEmployeeFounderForPurchaseOrder(EmployeePO employee) {
-//        employeeWrapper.updateEmployee(employee);
-//        boolean flag1 = employeeWrapper.updateEmployee(employee);
+//        employeeMapper.updateEmployee(employee);
+//        boolean flag1 = employeeMapper.updateEmployee(employee);
 //        if (!("").equals(employee.getEmployeeName())) {
 //            UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("founderName", employee.getEmployeeName());
+//            UpdateMapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("founderName", employee.getEmployeeName());
 //            PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
 //            purchaseOrderPO.setCommodityName(employee.getEmployeeName());
 //            return flag1;
@@ -125,11 +122,11 @@ public class EmployeeService {
 //    }
 //
 //    private Boolean updateEmployeeReviewForPurchaseOrder(EmployeePO employee) {
-//        employeeWrapper.updateEmployee(employee);
-//        boolean flag1 = employeeWrapper.updateEmployee(employee);
+//        employeeMapper.updateEmployee(employee);
+//        boolean flag1 = employeeMapper.updateEmployee(employee);
 //        if (!("").equals(employee.getEmployeeName())) {
 //            UpdateCondition<PurchaseOrderPO> updateCondition = new UpdateCondition<>();
-//            UpdateWrapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("reviewName", employee.getEmployeeName());
+//            UpdateMapper<PurchaseOrderPO> wrapper = updateCondition.updateConditionByEqOne("reviewName", employee.getEmployeeName());
 //            PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
 //            purchaseOrderPO.setCommodityName(employee.getEmployeeName());
 //            return flag1;
