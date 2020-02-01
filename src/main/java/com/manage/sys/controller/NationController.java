@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class NationController {
 
-    public ResultBean<Boolean> addNation(List<>){
+    public ResultBean<Boolean> addNation(){
 
 
     }

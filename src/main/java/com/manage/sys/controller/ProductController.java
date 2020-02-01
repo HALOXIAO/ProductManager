@@ -63,7 +63,6 @@ public class ProductController {
 
     @GetMapping("/")
     public ResultBean<List<ProductPO>> searchProductBySomething() {
-
     }
 
 }
